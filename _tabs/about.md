@@ -6,7 +6,7 @@ order: 4
 
 Welcome to my digital garden. My name is Aditya Godse, Undergraduate engineering student from Pune, India with a profound interest in engineering and software development. I have gained experience in several areas since I started programming.
 
-My passions surpass my abilities, and this place is a better way of comprehending them. This blog was created to share my works and leisure-time activities. This is also a digital running log of things I'm learning to build strong core software engineering skills while also expanding breadth of knowledge on [adjacent technologies](http://www.effectiveengineer.com/blog/master-adjacent-disciplines).
+My passions surpass my abilities, and this place is a better way of comprehending them. This blog was created to share my works and leisure-time activities. This is also a digital running log of things I'm learning to build strong core software engineering skills while also expanding breadth of knowledge on [adjacent technologies](https://www.effectiveengineer.com/blog/master-adjacent-disciplines).
 
 My interest lies in machine learning, computer vision, and software engineering. Building systems that helps people and automate tasks is fun.
 
