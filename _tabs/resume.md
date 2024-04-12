@@ -4,4 +4,5 @@ icon: fas fa-file
 order: 5
 ---
 
-<embed src="assets/pdf/resume.pdf" type="application/pdf" width="600px" height="500px"/>
+Click [here](/assets/pdf/resume.pdf) to view my resume.  
+_(Last updated: Nov 2024)_
