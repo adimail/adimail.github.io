@@ -1,25 +1,10 @@
 #  The contact options.
 
--
-  type: github
-  icon: 'fab fa-github'
--
-  type: linkedin
-  icon: 'fab fa-linkedin'
-  url:  'https://www.linkedin.com/in/ayigitdogan/'
--
-  type: goodreads
-  icon: 'fab fa-goodreads'
-  url:  'https://www.goodreads.com/ayigitdogan/'
--
-  type: strava
-  icon: 'fab fa-strava'
-  url:  'https://www.strava.com/athletes/ayigitdogan'
--
-  type: spotify
-  icon: 'fab fa-spotify'
-  url:  'http://open.spotify.com/user/ayigitdogan'
-
+- type: github
+  icon: "fab fa-github"
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/ayigitdogan/"
 
 # type: email
 # icon: 'fas fa-envelope'
