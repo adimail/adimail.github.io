@@ -4,5 +4,4 @@ icon: fas fa-file
 order: 5
 ---
 
-Click [here](/assets/pdf/resume.pdf) to view my resume.  
-_(Last updated: Nov 2024)_
+<embed src="https://adimail.github.io/assets/pdf/resume.pdf" type="application/pdf" width="600px" height="500px"/>
