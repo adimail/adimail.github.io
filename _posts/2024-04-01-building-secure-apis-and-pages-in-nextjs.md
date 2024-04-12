@@ -6,21 +6,19 @@ tags: [rest api, next.js]
 render_with_liquid: false
 ---
 
-# Building Secure APIs and Pages in Next.js
-
 Next.js offers a powerful way to create server-rendered and statically generated web applications. One of its key features is the ability to build APIs directly within your application using API routes. However, protecting these APIs and your application's pages is crucial for data security and overall application integrity. This article will guide you through creating APIs in Next.js and implementing effective middleware for robust API protection.
 
 # Creating APIs in Next.js
 
 Next.js leverages a special directory structure to designate API routes. Here's how to create a basic API route:
 
-### 1. Create the `pages/api` Directory:
+### 1. Create the `app/api` Directory:
 
-If it doesn't exist yet, create a directory named `api` inside your Next.js project's `pages` directory. This directory serves as the root for all your API routes.
+If it doesn't exist yet, create a directory named `api` inside your Next.js project's `app` directory. This directory serves as the root for all your API routes.
 
 ### 2. Create an API Route File:
 
-Inside the `pages/api/endpoint_name` directory, create a file named `route.ts`. This file will define the API endpoint and its behavior and it contains handlers for all the requests comming for that endpoint
+Inside the `app/api/endpoint_name` directory, create a file named `route.ts`. This file will define the API endpoint and its behavior and it contains handlers for all the requests comming for that endpoint
 
 ### 3. Define the API Handler Function:
 
@@ -32,7 +30,7 @@ Export a default function from your API route file. This function will handle in
 Here's a simple example:
 
 ```javascript
-// pages/api/hello/route.ts
+// app/api/hello/route.ts
 function handler(req, res) {
   res.status(200).json({ message: "Hello from Next.js API!" });
 }
@@ -46,7 +44,7 @@ Now, you can access this API endpoint at `http://localhost:3000/api/hello` (or t
 
 - **Server-Side Only:** API routes execute entirely on the server, making them ideal for database interactions, authentication, or other server-side logic.
 - **No Impact on Client-Side Bundle:** They don't contribute to the size of your client-side bundle, ensuring a smooth user experience for your application's frontend.
-- **Dynamic Routes:** You can create dynamic API routes (e.g., `pages/api/[slug].js`) to handle requests with variable parts, allowing for more flexible API endpoints.
+- **Dynamic Routes:** You can create dynamic API routes (e.g., `app/api/[slug].js`) to handle requests with variable parts, allowing for more flexible API endpoints.
 
 ### Middleware for Robust API Protection
 
