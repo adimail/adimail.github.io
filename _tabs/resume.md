@@ -4,5 +4,4 @@ icon: fas fa-file
 order: 5
 ---
 
-Click [here](/assets/pdf/resume_ayd.pdf) to view my resume.  
-*(Last updated: Nov 12, 2023)*
+<embed src="assets/pdf/resume.pdf" type="application/pdf" width="600px" height="500px"/>
