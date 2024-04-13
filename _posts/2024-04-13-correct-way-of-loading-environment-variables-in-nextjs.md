@@ -4,6 +4,7 @@ date: 2024-04-13 14:10:00 +0800
 categories: [API, software]
 tags: [engineering, good practices]
 render_with_liquid: false
+comments: true
 ---
 
 I was not able to load the environment variables in my next applications. What we usually do is create a `.env.local` file to store all API keys and credential secrets and then read them in the application using

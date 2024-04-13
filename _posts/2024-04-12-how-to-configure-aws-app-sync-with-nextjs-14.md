@@ -4,6 +4,7 @@ date: 2024-04-01 14:10:00 +0800
 categories: [Web, AWS, API]
 tags: [graphql, next.js]
 render_with_liquid: false
+comments: true
 ---
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">aws documentation is really hard to understand. i can&#39;t seem to find a starting point anywhere. no way to search for solutions, no tutorials that don&#39;t take me back to some sort of &quot;hello world&quot; lambda example.</p>&mdash; Aditya (@adityagodse381) <a href="https://twitter.com/adityagodse381/status/1777713316611109194?ref_src=twsrc%5Etfw">April 9, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

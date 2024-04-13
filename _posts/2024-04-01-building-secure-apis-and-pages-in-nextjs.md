@@ -4,6 +4,7 @@ date: 2024-04-01 14:10:00 +0800
 categories: [Web, Next.js, API]
 tags: [rest api, next.js]
 render_with_liquid: false
+comments: true
 ---
 
 Next.js offers a powerful way to create server-rendered and statically generated web applications. One of its key features is the ability to build APIs directly within your application using API routes. However, protecting these APIs and your application's pages is crucial for data security and overall application integrity. This article will guide you through creating APIs in Next.js and implementing effective middleware for robust API protection.

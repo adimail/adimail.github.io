@@ -4,6 +4,7 @@ date: 2024-04-12 14:10:00 +0800
 categories: [AWS, storage]
 tags: [cloud, aws]
 render_with_liquid: false
+comments: true
 ---
 
 ## Introduction
