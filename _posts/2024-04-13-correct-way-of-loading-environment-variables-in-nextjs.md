@@ -90,9 +90,6 @@ This is called **failing fast**.
 
 It is part of the clean code principles, which you can read more about [here](https://www.martinfowler.com/ieeeSoftware/failFast.pdf)
 
-Preview:
-<embed src="https://www.martinfowler.com/ieeeSoftware/failFast.pdf" type="application/pdf" width="600px" height="900px"/>
-
 Because we are using TypeScript, we can be 100% sure that all the values in the config exist.
 
 Additionally, TypeScript helps us avoid small bugs.
