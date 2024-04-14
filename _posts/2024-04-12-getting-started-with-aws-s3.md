@@ -10,11 +10,14 @@ mermaid: true
 
 ## Introduction
 
-Sinple Storage Service
+Amazon Simple Storage Service (S3) is like a big online storage room, similar to Google Drive or Dropbox. You can store all kinds of stuff there, like big files, documents, or pictures. It was one of the first services launched by Amazon Web Services (AWS) back in 2006.
 
-I like to think of the S3 bucket as a google drive or dropbox, where I can store litreally anything. Big files, source code, spreadsheets, anything. Released in 2006, S3 is the first service aws launched.
+![AWS S3](/assets/img/content/aws/s3-homepage-ss.png)
+_AWS S3 Homepage Introduction_
 
-S3 is focused on general storage modal. Highly advertised for highly scalable, avaliable, durable and support for other AWS services, making it ideal for microservice arcitecture for applications with very high throughput. We can build microservices that have very low latency where we can put objects and even get objects very quickly.
+designed for 99.999999999% (11 9's) of durability
+
+S3 is designed with a focus on generalized storage models. Highly advertised for highly scalable, avaliable, durable and support for other AWS services, making it ideal for microservice arcitecture for applications with very high throughput. We can build microservices that have very low latency where we can put objects and even get objects very quickly.
 
 Useful in variety of contexts:
 

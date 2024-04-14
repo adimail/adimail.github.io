@@ -2,12 +2,12 @@
 title: Client-Side Image Optimization with WebAssembly
 date: 2024-04-13 14:10:00 +0800
 categories: [WASM]
-tags: [web assembly, next js, Images]
+tags: [web assembly, next js]
 render_with_liquid: false
 comments: true
 ---
 
-I am working on an application where users are uploading images on cloud (a S3 bucket in our case) from their device. A potential problem I am willing to solve is about the image size. The images that the users upload are quite large so we needed a image optimiser that will run on the client side to reduce the image size without compromising the quality of the images. I wanted a tool that will run on client side insted of server side to reduce the round trips. A populr option I found was using web assembly.
+I am working on an application where users are uploading images on cloud (a S3 bucket in our case) from their device. One issue I'm addressing is the large size of these images. The images that the users upload are quite large so we need an image optimiser that will run on the client side to reduce the image size without compromising the quality of the images. I wanted a tool that will run on client side insted of server side to reduce the round trips. A populr option I found was using web assembly.
 
 **The Challenge**: Large image uploads can slow down application performance.
 **The Solution**: In-browser image optimization using WASM.
@@ -70,7 +70,7 @@ All ffmpeg.wasm packages are under @ffmpeg name space:
   - **Usage:** Multi-threaded ffmpeg.wasm core
   - **Use Case:** This package contains the core WebAssembly code for ffmpeg.wasm, compiled for multi-threaded execution. This allows for faster processing of media files by utilizing multiple cores on the user's device. Use this package when performance is critical for your application.
 
-## FFmpeg CLi
+## FFmpeg CLI
 
 **FFmpeg** is a universal media converter. It can read a wide variety of inputs - including live grabbing/recording devices - filter, and transcode them into a plethora of output formats.
 
@@ -180,3 +180,5 @@ Usage
 ```typescript
 const { url, output } = await convertFile(ffmpegRef.current, action);
 ```
+
+> The potential drawback of this kind of arcitecture is the performance on low end PCs and mobile devices

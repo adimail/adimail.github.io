@@ -5,6 +5,7 @@ categories: [Web, Next.js, API]
 tags: [rest api, next.js]
 render_with_liquid: false
 comments: true
+mermaid: true
 ---
 
 Next.js offers a powerful way to create server-rendered and statically generated web applications. One of its key features is the ability to build APIs directly within your application using API routes. However, protecting these APIs and your application's pages is crucial for data security and overall application integrity. This article will guide you through creating APIs in Next.js and implementing effective middleware for robust API protection.
@@ -87,6 +88,22 @@ export async function middleware(req: NextRequest) {
 export const config = {
   matcher: ["/listings/:path*", "/admin/:path*", "/addroom"],
 };
+```
+
+```mermaid
+graph TD
+    A[Start] --> B[Check Authentication]
+    B -->|Authenticated| C[Check if on Sign-In Page]
+    C -->|Yes| D[Redirect to Home Page]
+    C -->|No| E[Check if on Admin Page]
+    E -->|Yes| F[Check User Role]
+    F -->|Admin| G[Continue]
+    F -->|Not Admin| H[Redirect to Home Page]
+    E -->|No| G
+    B -->|Not Authenticated| I[Redirect to Sign-In Page]
+    G --> I
+    D --> I
+    I --> J[End]
 ```
 
 **Redirects**: It handles various redirection scenarios:
