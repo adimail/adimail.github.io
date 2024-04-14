@@ -5,6 +5,7 @@ categories: [AWS, storage]
 tags: [cloud, aws]
 render_with_liquid: false
 comments: true
+mermaid: true
 ---
 
 ## Introduction
@@ -75,3 +76,114 @@ Security in S3 is very imoprtant to it is adviced to configure the bucket proper
 1. Access: Access and resource based ntrols with AWS IAM
 1. Audition: Access logs, action based logs, alarms
 1. Infrastructure sccurity: Built on top of AWS cloud infrastructure
+
+## Using S3 in client applications
+
+Integrating an S3 bucket into a Next.js application typically involves allowing the application to interact with the S3 bucket for operations such as uploading files, downloading files, or accessing files stored in the bucket. One of the most important things to consider when integrating an S3 bucket into a Next.js application is ensuring secure access to the bucket while maintaining proper permissions and authentication.
+
+We will use `S3Client` and `PutObjectCommand` from `@aws-sdk/client-s3` to put objects in our bucket.
+
+```typescript
+const s3 = new S3Client({
+  region: EnvironmentVariables.webassemblybucketregion,
+  credentials: {
+    accessKeyId: EnvironmentVariables.bucketaccesskey,
+    secretAccessKey: EnvironmentVariables.bucketsecretkey,
+  },
+});
+```
+
+The `getSignedUrl` function is a method provided by the AWS SDK that generates a pre-signed URL for accessing objects in an S3 bucket. This pre-signed URL contains authentication information and can be used to grant temporary access to specific objects in the S3 bucket without requiring the requester to have AWS credentials.
+
+```typescript
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+
+export async function GetSignedUrl(
+  type: string,
+  size: number,
+  checksum: string
+) {
+  const session = getAuthSession();
+
+  if (!session) {
+    return { failure: "Not authenticated" };
+  }
+
+  if (!acceptedFileTypes.includes(type)) {
+    return { failure: "invalid Type" };
+  }
+
+  if (size > maxFileSize) {
+    return { failure: "File too big" };
+  }
+
+  const fileName = generateFileName();
+
+  const putobj = new PutObjectCommand({
+    Bucket: EnvironmentVariables.webassemblybucketname,
+    Key: fileName,
+    ContentType: type,
+    ContentLength: size,
+    ChecksumSHA256: checksum,
+  });
+
+  const signedurl = await getSignedUrl(s3, putobj, {
+    expiresIn: 30,
+  });
+
+  return { succes: { url: signedurl } };
+}
+```
+
+Usage
+
+```typescript
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  try {
+    if (file) {
+      //Declared in react usestate
+      const signedURL = await GetSignedUrl(
+        file.type,
+        file.size,
+        await computeSHA256(file)
+      );
+
+      if (signedURL.failure != null) {
+        throw new Error(signedURL.failure);
+      }
+
+      const url = signedURL.succes?.url;
+
+      await fetch(url, {
+        method: "PUT",
+        body: file,
+        headers: {
+          "content-type": file.type,
+        },
+      });
+    }
+  } catch (e) {
+    console.log("Failed to upload file: " + e);
+  } finally {
+    console.log("File uploaded successfully");
+  }
+};
+```
+
+```mermaid
+graph TD;
+    A[Start] --> B{Authenticated?}
+    B -->|Yes| C[Validate File Type]
+    C -->|Valid| D[Check File Size]
+    D -->|Valid| E[Generate File Name]
+    E --> F[Create PutObjectCommand]
+    F --> G{Get Signed URL}
+    G -->|Success| H[Upload File to Signed URL]
+    H --> I[File Uploaded Successfully]
+    G -->|Failure| J[Handle Failure]
+    B -->|No| K[Handle Not Authenticated]
+    C -->|Invalid| J
+    D -->|Invalid| J
+```
