@@ -2,7 +2,7 @@
 title: Client-Side Image Optimization with WebAssembly
 date: 2024-04-13 14:10:00 +0800
 categories: [WASM]
-tags: [web assembly, next js]
+tags: [web assembly, next js, ffmpeg]
 render_with_liquid: false
 comments: true
 ---
