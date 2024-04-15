@@ -247,3 +247,18 @@ export const config = {
   ],
 };
 ```
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Next.js Page
+    participant AWS AppSync
+    participant DynamoDB
+
+    Client ->> Next.js Page: Request data
+    Next.js Page ->> AWS AppSync: GraphQL Query
+    AWS AppSync ->> DynamoDB: Retrieve data
+    DynamoDB -->> AWS AppSync: Data
+    AWS AppSync -->> Next.js Page: Data
+    Next.js Page -->> Client: Display data
+```

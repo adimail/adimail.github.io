@@ -19,11 +19,17 @@ Now entered `Web Assembly`. It allows us to run binary files at a very high spee
 Now for our tool, I am not going to write my own converter in C or any other low level language, insted I am going to use .wasm module of `FFmpeg`. It is an free and open source tool for image, vided and audio rocessing. FFmpeg is a superstar in the world of multimedia processing.
 
 Advantages of using WASM module
+
 **Reduced Server Load**: Image processing happens on the client-side, minimizing server workload.
+
 **Faster Uploads**: Smaller images upload faster, improving user experience.
+
 **Offline Functionality (Potential)**: With the right setup, image optimization might even work offline.
+
 **Security**: Users' data only lives inside their browser, no need to worry about any data leakage or network latency.
+
 **Client-side computing**: Instead of hosting a cluster of server-end servers, we can now offload multimedia processing to client-side.
+
 **Flexible**: ffmpeg.wasm comes with single-thread and multi-thread cores, you can use whichever fits your use case.
 
 I will create another post about FFmpeg later, here I will discuss about using the library with NextJs. Read the documentation using [this](https://ffmpegwasm.netlify.app/) link.
