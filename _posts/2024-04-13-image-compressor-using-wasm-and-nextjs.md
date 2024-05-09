@@ -5,6 +5,9 @@ categories: [WASM]
 tags: [web assembly, next js, ffmpeg]
 render_with_liquid: false
 comments: true
+image:
+  path: /assets/img/content/ffmpeg-next-js-april-2024/architecture.png
+  alt: FFMPEG.wasm arcitecture
 ---
 
 I am working on an application where users are uploading images on cloud (a S3 bucket in our case) from their device. One issue I'm addressing is the large size of these images. The images that the users upload are quite large so we need an image optimiser that will run on the client side to reduce the image size without compromising the quality of the images. I wanted a tool that will run on client side insted of server side to reduce the round trips. A populr option I found was using web assembly.
