@@ -35,7 +35,7 @@ Buckets should have unique names. You can think of htem as general purpose file 
 
 Content o that we are storing in a bucket. This can include media content, json/csv/pdf files, binary files, anything. The maximum size of the bucket is 5terabytes. The objects are accessible by url like:
 
-`http://s3.amazonaws.com/<bucket-name>/<object-name>`
+`http://<bucket-name>/s3.<region-name>.amazonaws.com/<object-name>`
 
 This url only when public access is grantes, and by default the public access is not enabled.
 
