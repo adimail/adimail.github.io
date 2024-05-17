@@ -13,9 +13,6 @@ image:
 
 The first ever application any developer builds unknowingly implements the [monolithic architecture](https://microservices.io/patterns/monolithic.html), all code sits into a single repo/code-base tightly coupled together.
 
-![Architecture of FFmpeg](/assets/img/content/web-architecture/architecture.png)
-_Monolithic vs Microservice_
-
 But when we want to scale to more users, we can use a [microservice architecture](https://microservices.io/).
 
 But there is lot more to consider in terms of architecture.
