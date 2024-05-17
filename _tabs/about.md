@@ -22,5 +22,3 @@ My interest lies in machine learning, computer vision, web, and software enginee
 - I also like flowers, my favorite is _sonchafa_
 - I love computers 💕🤖
 - [music](https://open.spotify.com/user/31yapch6pln2ytkm3raieemqr3v4)!!!
-
-Feel free to get in touch: [adimail2404@gmail.com](mailto:adimail2404@gmail.com)

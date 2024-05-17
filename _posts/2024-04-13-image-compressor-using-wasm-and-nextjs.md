@@ -42,7 +42,7 @@ I will create another post about FFmpeg later, here I will discuss about using t
 ffmpeg.wasm is a pure WebAssembly / JavaScript port of FFmpeg enabling video & audio record, convert and stream right inside browsers.
 
 ![Arcitecture of FFmpeg](/assets/img/content/ffmpeg-next-js-april-2024/architecture.png)
-_Arcitecture of FFmpeg_
+_Architecture of FFmpeg_
 
 Multimedia transcoding is a resource-intensive task that you don't want to execute in main thread, thus in ffmpeg.wasm we offload those task to web worker _(ffmpeg.worker)_ by default. This makes almost all function calls in ffmpeg.wasm are asynchronous and it is recommended to use `async/await` syntax.
 

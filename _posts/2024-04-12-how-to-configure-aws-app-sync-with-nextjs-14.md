@@ -17,7 +17,7 @@ Before getting started, [here](https://docs.aws.amazon.com/appsync/latest/devgui
 
 ## AppSync
 
-Graph QL is an amazing technology. I am amazed by the story behind it. Checkout this documentry.
+Graph QL is an amazing technology. I am amazed by the story behind it. Checkout this documentary.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/783ccP__No8?si=Tzca1WZ9g2pfAxbu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -53,11 +53,11 @@ To create a graphql endpoint, you will first need Amplify cli.
 
 `npm install -g @aws-amplify/cli`
 
-In your current working directiory run:
+In your current working directory run:
 
 `amplify init`
 
-follow the further instructructions and you will have a _amplify_ directory
+follow the further instructions and you will have a _amplify_ directory
 
 To create an graphQL api, run
 `amplify add api`
@@ -100,9 +100,9 @@ At this step, you are asked following questions:
 ? Enter maximum statement depth [increase from default if your schema is deeply nested]: 2
 ```
 
-If you are using `src` directory in your project, the QraphQL queries, mutations and subscriptions will be stored in it, else you can customise the file name patterns for these. I like to keep it default in `src` folder.
+If you are using `src` directory in your project, the GraphQL queries, mutations and subscriptions will be stored in it, else you can customize the file name patterns for these. I like to keep it default in `src` folder.
 
-The src folder also contains the `amplifyconfiguration.json` and `aws-exports.js` files, which are importnt and I will talk more about them further.
+The src folder also contains the `amplifyconfiguration.json` and `aws-exports.js` files, which are important and I will talk more about them further.
 
 ## Configure your application
 

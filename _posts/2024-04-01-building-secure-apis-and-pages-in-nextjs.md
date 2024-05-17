@@ -20,7 +20,7 @@ If it doesn't exist yet, create a directory named `api` inside your Next.js proj
 
 ### 2. Create an API Route File:
 
-Inside the `app/api/endpoint_name` directory, create a file named `route.ts`. This file will define the API endpoint and its behavior and it contains handlers for all the requests comming for that endpoint
+Inside the `app/api/endpoint_name` directory, create a file named `route.ts`. This file will define the API endpoint and its behavior and it contains handlers for all the requests coming for that endpoint
 
 ### 3. Define the API Handler Function:
 
