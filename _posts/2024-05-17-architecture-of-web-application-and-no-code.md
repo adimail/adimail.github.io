@@ -133,3 +133,19 @@ graph TD
     B --> C[Generate Shipping Label]
     C --> D[Send Shipping Confirmation Email]
 ```
+
+## No code
+
+No thanks. I will code
+
+here is the summary:
+
+- lock in
+- performance
+- technical debt
+- difficult to reuse
+- goes to shit the moment you try to do anything outside their "intended use case"
+- flexibility
+- ethics (i mean, you as a software developer, why would you ever consider no code)
+
+In practice, sooner or later when you try to do something too specific/custom and complex, you'll be forced to see what's under the hood and actually write code. I will not trade abstraction for expressiveness. Low code is the high-interest credit card of technical debt.
