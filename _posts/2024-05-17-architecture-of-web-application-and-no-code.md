@@ -1,7 +1,7 @@
 ---
 title: Architecture of web application and no code
 date: 2024-05-17 14:10:00 +0800
-categories: [Web]
+categories: [backend]
 tags: [architecture, design, development]
 render_with_liquid: false
 comments: true

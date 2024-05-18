@@ -1,7 +1,7 @@
 ---
 title: Getting started with AWS app sync with Next.js app router
 date: 2024-04-01 14:10:00 +0800
-categories: [Web, AWS, API]
+categories: [backend]
 tags: [graphql, next.js]
 render_with_liquid: false
 comments: true

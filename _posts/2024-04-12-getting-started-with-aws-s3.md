@@ -1,7 +1,7 @@
 ---
 title: Getting started with AWS S3 bucket storage
 date: 2024-04-12 14:10:00 +0800
-categories: [AWS, storage]
+categories: [backend]
 tags: [cloud, aws]
 render_with_liquid: false
 comments: true
