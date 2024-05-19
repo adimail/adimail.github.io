@@ -64,7 +64,7 @@ blockchain, DAOs and dApps are good examples of decentralized networks. i once i
      - Read The Rust Programming Language
      - Complete Rustlings Exercises
 
-2. **Conceptualize the Application Architecture**
+1. **Conceptualize the Application Architecture**
 
    - **Design P2P Network**
      - Research IPFS
@@ -76,7 +76,7 @@ blockchain, DAOs and dApps are good examples of decentralized networks. i once i
      - User Identity Contracts
      - Content Metadata Contracts
 
-3. **Develop the Core Components**
+1. **Develop the Core Components**
 
    - **Develop User Authentication**
      - Use DIDs and Verifiable Credentials
@@ -90,7 +90,7 @@ blockchain, DAOs and dApps are good examples of decentralized networks. i once i
      - Smart Contract for Reputation
      - Token System for Rewards
 
-4. **Build the User Interface**
+1. **Build the User Interface**
 
    - **Frontend Development**
      - Use React or Vue.js
@@ -99,7 +99,7 @@ blockchain, DAOs and dApps are good examples of decentralized networks. i once i
      - Use Rust for Backend
      - Create REST APIs with Actix or Rocket
 
-5. **Test and Deploy**
+1. **Test and Deploy**
 
    - **Write Unit Tests**
      - Test Rust Code
@@ -111,7 +111,7 @@ blockchain, DAOs and dApps are good examples of decentralized networks. i once i
      - Deploy Smart Contracts on Testnet
      - Deploy Frontend and Backend
 
-6. **Documentation and Community Engagement**
+1. **Documentation and Community Engagement**
    - **Comprehensive Documentation**
      - Document Code and Usage
    - **Engage with Community**
@@ -183,6 +183,65 @@ graph LR
     F1 --> F1a[Document Code and Usage]
     F2 --> F2a[Share Progress on GitHub]
 ```
+
+## How it will work
+
+imagine a network collectively owned by all the students, without any central server—just their mobile devices and personal computers. on this network, students can find, share, search, filter, sort, view, and transfer files among themselves. they don't need an internet connection to share files if they are on the same WiFi network, making it easy to share lecture notes, PDF files, and computer programs with one another.
+
+IPFS (InterPlanetary File System) is a peer-to-peer distributed file system that aims to connect all computing devices with the same system of files. It is a protocol designed to create a more decentralized and efficient web by allowing users to store and share data in a distributed manner.
+
+```mermaid
+sequenceDiagram
+    participant User as Student
+    participant App as Mobile/Web App
+    participant IPFSNode as IPFS Node
+    participant DLT as Decentralized Ledger Technology (Blockchain)
+
+    User->>App: Request file
+    App->>IPFSNode: Check if file is available locally
+    IPFSNode-->>App: File not available
+    App->>IPFSNode: Query IPFS network for file
+    IPFSNode->>+IPFSNetwork: Broadcast file request
+    IPFSNetwork-->>-IPFSNode: File located on another node
+    IPFSNode-->>App: File available at another node
+    App->>IPFSNode: Request file from the other node
+    IPFSNode->>+OtherIPFSNode: Request file
+    OtherIPFSNode-->>-IPFSNode: Send file data
+    IPFSNode-->>App: File received
+    App->>User: Deliver file
+
+    User->>App: Upload new file
+    App->>IPFSNode: Store file on IPFS
+    IPFSNode->>IPFSNode: Generate unique file hash (CID)
+    IPFSNode->>+IPFSNetwork: Announce new file with CID
+    IPFSNetwork-->>-IPFSNode: Acknowledge file storage
+    IPFSNode->>DLT: Update metadata on blockchain
+    DLT-->>IPFSNode: Confirm metadata update
+    IPFSNode-->>App: File stored with CID
+    App-->>User: File uploaded successfully with CID
+```
+
+### 1. File Request:
+
+- The student requests a file through the mobile app.
+- The app checks if the file is available locally on
+- its connected IPFS node.
+- If not available, the app queries the IPFS network for the file.
+- The IPFS network locates the file on another node and informs the app.
+- The app requests the file from the other IPFS node.
+- The file is transferred from the other IPFS node - to the app, and then to the student.
+
+### 2. File Upload:
+
+- The student uploads a new file via the mobile app.
+- The app stores the file on the connected IPFS node.
+- The IPFS node generates a unique file hash (CID) for the file.
+- The IPFS node announces the new file with the CID to the IPFS network.
+- The IPFS network acknowledges the file storage.
+- The IPFS node updates the metadata on the decentralized ledger technology (blockchain) with the file's CID.
+- The blockchain confirms the metadata update.
+- The IPFS node confirms the file storage with the app.
+- The app notifies the student that the file has been uploaded successfully with its CID.
 
 this is the first fost of manny to come of my progress with this application
 
