@@ -2,7 +2,7 @@
 title: Building Secure APIs and Pages in Next.js
 date: 2024-04-01 14:10:00 +0800
 categories: [backend]
-tags: [rest api, next.js]
+tags: [api, next.js]
 render_with_liquid: false
 comments: true
 mermaid: true

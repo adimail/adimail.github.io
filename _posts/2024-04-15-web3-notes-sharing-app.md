@@ -1,7 +1,7 @@
 ---
 title: Web3 notes sharing app
 date: 2024-05-18 14:10:00 +0800
-categories: [my projects]
+categories: [my projects, web3]
 tags: [web3, blockchain, rust]
 render_with_liquid: false
 comments: true
