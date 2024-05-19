@@ -2,7 +2,7 @@
 title: How to read environment variables in NextJS
 date: 2024-04-13 14:10:00 +0800
 categories: [practices]
-tags: [engineering]
+tags: [engineering, next.js]
 render_with_liquid: false
 comments: true
 ---
