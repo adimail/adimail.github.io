@@ -12,7 +12,7 @@ tabs:
   # format: <filename_without_extension>: <value>
   home: Home
   categories: Categories
-  tags: Tags
+  # tags: Tags
   archives: Archives
   about: About
 
@@ -35,12 +35,12 @@ copyright:
     link: https://creativecommons.org/licenses/by/4.0/
 
   # Displayed in the footer
-  brief: Some rights reserved.
-  verbose: >-
-    Except where otherwise noted, the blog posts on this site are licensed
-    under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.
+  # brief: Some rights reserved.
+  # verbose: >-
+  #   Except where otherwise noted, the blog posts on this site are licensed
+  #   under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.
 
-meta: Using the :PLATFORM theme :THEME.
+# meta: Using the :PLATFORM theme :THEME.
 
 not_found:
   statment: Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
@@ -54,7 +54,7 @@ notification:
 post:
   written_by: By
   posted: Posted
-  updated: Updated
+  # updated: Updated
   words: words
   pageview_measure: views
   read_time:
@@ -77,11 +77,11 @@ post:
 # See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
 df:
   post:
-    strftime: '%b %e, %Y'
-    dayjs: 'll'
+    strftime: "%b %e, %Y"
+    dayjs: "ll"
   archives:
-    strftime: '%b'
-    dayjs: 'MMM'
+    strftime: "%b"
+    dayjs: "MMM"
 
 # categories page
 categories:
