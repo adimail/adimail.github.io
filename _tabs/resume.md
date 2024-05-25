@@ -4,4 +4,4 @@ icon: fas fa-file
 order: 5
 ---
 
-contact me at adimail2404[at]gmail[dot]com
+<embed src="https://adimail.github.io/assets/pdf/resume.pdf" type="application/pdf" width="600px" height="900px"/>
