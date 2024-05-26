@@ -8,18 +8,18 @@ comments: true
 mermaid: true
 ---
 
-i want to learn blockchain. previously i've build a [torrent client](https://github.com/adimail/torrent-client) using golang that [bencodes](https://en.wikipedia.org/wiki/Bencode) _`.torrent`_ files to download the assets using bit torrent protocol. it was from a tutorial from [build-your-own-x](https://build-your-own-x.vercel.app/) project and it was really fun. the first time i downloaded the debian os file, it was a really inspiring moment for me. to watch all the pieces of the go code working together, it was so beautiful.
+Previously i've build a [torrent client](https://github.com/adimail/torrent-client) using golang that [bencodes](https://en.wikipedia.org/wiki/Bencode) _`.torrent`_ files to download the assets using bit torrent protocol. It was from a tutorial from [build-your-own-x](https://build-your-own-x.vercel.app/) project and it was really fun. The first time I downloaded the debian os file using my torrent client, it was a really inspiring moment for me. To watch all the pieces of the go code working together, it was so beautiful.
 
 ![torrent-client](https://raw.githubusercontent.com/adimail/torrent-client/main/assets/torrent-client-demo.gif)
 _here is a demo of me downloading a debian distro from a .torrent file using bit torrent protocal_
 
-## the idea
+## The idea
 
-an application that will allow users (students) to share study materials, notes, computer programs, codes, reports and other relevant materials with each other over a decentralized network.
+An application that will allow users (students) to share study materials, notes, computer programs, codes, reports and other relevant materials with each other over a decentralized network.
 
-i am also thinking about users can upload, download, and review materials, earning native tokens as rewards for their contributions. i would also need a search engine and a recommendation system.
+I am also thinking about users can upload, download, and review materials, earning native tokens as rewards for their contributions. i would also need a search engine and a recommendation system.
 
-people can:
+People can:
 
 - share study material
   - pdf
@@ -35,9 +35,9 @@ people can:
 ![client-server-vs-p2p](/assets/img/content/p2p/client-server-vs-p2p.png)
 _client-server vs p2p_
 
-### decentralized architecture
+### Decentralized architecture
 
-decentralized architecture refers to a system design where there is no single central authority or server controlling the entire network. Instead, control and data are distributed across multiple nodes (computers) in the network.
+Decentralized architecture refers to a system design where there is no single central authority or server controlling the entire network. Instead, control and data are distributed across multiple nodes (computers) in the network.
 
 - resilience and stability
 - reduced censorship
@@ -46,16 +46,16 @@ decentralized architecture refers to a system design where there is no single ce
 
 ### p2p
 
-p2p architecture is a subset of decentralized architecture where each node in the network can act as both a client and a server. In a P2P network, nodes (peers) communicate directly with each other, sharing resources and information without needing a central server. Here are the key features and advantages
+P2P architecture is a subset of decentralized architecture where each node in the network can act as both a client and a server. In a P2P network, nodes (peers) communicate directly with each other, sharing resources and information without needing a central server. Here are the key features and advantages
 
 - resource sharing
 - direct communication
 
-blockchain, DAOs and dApps are good examples of decentralized networks. i once interviewed a student from pune for a backend role in our startup, he was good. his expertise was in dapps and blockchain. we didn't work out but his profile was good. now i will learn this as well and share the results on my blog.
+Blockchain, DAOs and dApps are good examples of decentralized networks.
 
 ## How it will work
 
-imagine a network collectively owned by all the students, without any central server—just their mobile devices and personal computers. on this network, students can find, share, search, filter, sort, view, and transfer files among themselves. they don't need an internet connection to share files if they are on the same WiFi network, making it easy to share lecture notes, PDF files, and computer programs with one another.
+Imagine a network collectively owned by all the students, without any central server—just their mobile devices and personal computers. On this network, students can find, share, search, filter, sort, view, and transfer files among themselves. They don't need an internet connection to share files if they are on the same WiFi network, making it easy to share lecture notes, PDF files, and computer programs with one another.
 
 IPFS (InterPlanetary File System) is a peer-to-peer distributed file system that aims to connect all computing devices with the same system of files. It is a protocol designed to create a more decentralized and efficient web by allowing users to store and share data in a distributed manner.
 
@@ -216,12 +216,10 @@ graph LR
     F2 --> F2a[Share Progress on GitHub]
 ```
 
-this is the first fost of manny to come of my progress with this application
+This is the first fost of manny to come of my progress with this application
 
-i just downloaded [the intern](https://letterboxd.com/film/the-intern-2015/) from torrent and am writing this article while the movie is being downloaded on my mobile.
+I also have end semester exams from next tuesday (3 days to go). i also need to take time out from my startup to get this done. next thing i am going to do is create an wireframe for the app, then study p2p, then create a flutter boiler plate.
 
-i also have end semester exams from next tuesday (3 days to go). i also need to take time out from my startup to get this done. next thing i am going to do is create an wireframe for the app, then study p2p, then create a flutter boiler plate.
+One might think why am i having too many things on my plate at the same time. but thats the way i am.
 
-one might think why am i having too many things on my plate at the same time. but thats the way i am.
-
-so much to learn, so little time 🪽
+So much to learn, so little time 🪽
