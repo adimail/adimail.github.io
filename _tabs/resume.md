@@ -8,4 +8,4 @@ order: 5
   <iframe src="https://adimail.github.io/assets/pdf/resume.pdf" style="width: 80%; max-width: 600px; height: 900px;" frameborder="0"></iframe>
 </div>
 
-Last updated 26 May 2024
+Last updated 29 May 2024
