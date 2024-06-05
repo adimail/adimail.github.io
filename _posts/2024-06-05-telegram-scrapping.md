@@ -1,5 +1,5 @@
 ---
-title: Web Scraping Telegram Posts and Content
+title: Web Scraping Telegram Posts and Data Pipelines
 date: 2024-06-05 14:10:00 +0800
 categories: [data]
 tags: [webscrapping, data, python]
@@ -183,6 +183,33 @@ df['mobile_numbers'] = df['content'].apply(extract_mobile)
 ```
 
 This way we can extract categories from raw data.
+
+```mermaid
+graph TD
+  subgraph Data Extraction
+    A[Existing collected data] -->|Merge with new data| B[Group Data]
+  end
+  subgraph Data Processing
+    B -->|Tokenization| C[Tokenized Text]
+    C -->|Named Entity Recognition| D[Named Entities]
+    D -->|Information Extraction| E[Extracted Information]
+    E -->|EDA Report| F[Insights]
+    F -->|Identify Popular Locations| G[Popular Locations]
+    F -->|Analyze Gender Ratio| H[Gender Ratio]
+    F -->|Identify Trending Room Types| I[Trending Room Types]
+  end
+  subgraph Data Pipeline
+    F -->|Batch Processing| J[Automated Reports]
+  end
+
+  subgraph Telegram API
+    K[Telegram API] -->|Collect Data| B
+  end
+
+  subgraph Telethon
+    L[Telethon] -->|Interact with Telegram API| K
+  end
+```
 
 ## Next steps
 
