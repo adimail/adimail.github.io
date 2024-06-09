@@ -2,7 +2,7 @@
 title: Web Scraping Telegram Posts and Data Pipelines
 date: 2024-06-05 14:10:00 +0800
 categories: [data]
-tags: [webscrapping, data, python]
+tags: [webscrapping, data]
 render_with_liquid: false
 comments: true
 mermaid: true

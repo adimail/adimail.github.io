@@ -2,7 +2,7 @@
 title: Drawing charts in your web application and github readme markdowns using mermaid js
 date: 2024-04-15 14:10:00 +0800
 categories: [web]
-tags: [mermaid, html, readme]
+tags: [documentation]
 render_with_liquid: false
 comments: true
 mermaid: true
