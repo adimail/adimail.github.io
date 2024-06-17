@@ -37,7 +37,7 @@ Also please checkout the [Airbnb coding guidlines](https://github.com/airbnb/jav
 
 ## Project structure and contributions
 
-Matle Ubl (CTO at vercel) talked about his first time at the startup. At that time, `npm` announced `private modules` that allowed developers to share code as npm packages. This is a really bad approach because the teams have to regularly update their _package.json_ files. And this can be a potential bottleneck when the application size grows.
+Matle Ubl (CTO at vercel) talked about his first time at the startup (Vercel). At that time, `npm` announced `private modules` that allowed developers to share code as npm packages. This is a really bad approach because the teams have to regularly update their _package.json_ files. And this can be a potential bottleneck when the application size grows.
 
 In a team, we need to foster collaboration and ownership through a monorepo structure. This could be a bad idea in a sense that anyone on the team can just delete code, but after all software engineering is about trade-offs. We can use access restrictions to specific parts within the monorepo to manage contributions. On github we can setup CODEOWNERS file [(read more about _CODEOWNERS_)](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) that can restrict certain parts of codebases to teams or users, or require peer reviews from specific people.
 
@@ -45,7 +45,7 @@ In a team, we need to foster collaboration and ownership through a monorepo stru
 
 We have heard about loosely coupled arcitecture in numerous places. We want the code components independent of each other and minimize the dependencies between an application's components. This is really helpful for large-scale changes. Teams can make major design changes without needing permission from others or depending on other teams, makes the decisions less haulting.
 
-### utility-first approach
+## utility-first approach
 
 Use a utility-first approach such as tailwind which reduces the amount of CSS you need to write, but it also avoids needing an adjacent CSS file for each React component. One of the most under appreciated advantages of using tailwind CSS is that we no longer have to create names for all our code components.
 
@@ -121,20 +121,38 @@ export const Sidebar: FC<CustomerProps> = ({ customerId }) => (
 );
 ```
 
-### Migrate incrementally
+## Migrate incrementally
 
 Scale the application through incremental migrations rather than massive overhauls. Take small steps and gradually migrate parts of the codebase to mitigate risks.
 
-### Shared state managment - zustand
+An incremental migration strategy involves gradually transitioning to a new or significantly updated software system. During this process, both the old and new systems run simultaneously, and either features or users are moved over in phases instead of all at once.
 
-Benefits of Using Zustand:
+![What is incremental migration](/assets/img/content/web/incremental-migration.png)
+_What is incremental migration_
+
+[Read more](https://vercel.com/blog/incremental-migrations) about why migrating incrementally is almost always good.
+
+## Shared state managment - zustand
+
+Zustand is a state management library for React applications that is designed to be small, fast, and scalable. It's built on React hooks and simplifies the Flux architecture, making it easy to use without requiring a lot of boilerplate code. Zustand is one of the smallest state management libraries, with a bundle size of just 1.16kb.
+
+Zustand allows you to create and update states globally that can be easily shared between different parts of your app. It can be used with middleware to add more features to your application, such as debugging state changes or persisting state using client storage.
+
+### Some features of Zustand include:
+
+- Hook-based API: That's not opinionated or boilerplatey
+- Store: Can contain primitives, objects, and functions
+- Create function: Can be used to create a store
+- Set function: Merges state
+
+### Benefits of Using Zustand:
 
 - Simple API: concise and easy-to-understand API for creating and managing state.
 - Immutability: enforces immutability, ensuring predictable state updates and avoiding unintended side effects.
 - React Hooks Integration: seamlessly integrates with React hooks, allowing for a clean and functional approach to state management.
 - Lightweight: has a small bundle size, making it suitable for performance-critical applications.
 
-![Airbnb Source](/assets/img/content/web/zustand.webp)
+![Zustand](/assets/img/content/web/zustand.webp)
 
 We create a store for our states and then the zustand store API can be used globally
 
@@ -146,22 +164,18 @@ import { persist } from "zustand/middleware";
 export type Gender = "male" | "female" | "any";
 
 export interface State {
-  query: string;
   gender: Gender;
 }
 
 interface Action {
-  setQuery: (query: string) => void;
   setGender: (gender: Gender) => void;
 }
 
 export const useStateStore = create<State & Action>()(
   persist(
     (set) => ({
-      query: ``,
       gender: "any",
 
-      setQuery: (query) => set(() => ({ query })),
       setGender: (gender) => set(() => ({ gender })),
     }),
     {
@@ -196,4 +210,4 @@ Checkout the [zustand store code](https://github.com/adimail/mermaid-editor/blob
 
 ---
 
-I am still learning. Documentation is a subject that is highly underrated, for sure.
+Documentation is a subject that is highly underrated, for sure. But it is very crucial while working in teams. Its way more than just a formality. For me, I want the other developers reading my code to understand it better, which will save their time. Good documentation will also save a lot of effort while scaling an application. I always try to document my processes. I am still learning.
