@@ -1,7 +1,6 @@
 ---
 title: Web3 notes sharing app
 date: 2024-05-18 14:10:00 +0800
-categories: [projects]
 tags: [web3]
 render_with_liquid: false
 comments: true
