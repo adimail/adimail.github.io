@@ -10,7 +10,7 @@ My passions surpass my abilities, and this place is a better way of comprehendin
 
 My interest lies in machine learning, computer vision, web, and software engineering. Building things at scale and documenting them is what I want to do.
 
-### more about me
+## more about me
 
 - Grew up chasing chickens in a small village
 - deeply fascinated by space science and aviation
@@ -19,3 +19,14 @@ My interest lies in machine learning, computer vision, web, and software enginee
 - I like flowers, my favorite is _[sonchafa](https://adimail.github.io//assets/img/favicons/android-chrome-512x512.png)_
 - I love computers 💕🤖
 - [music](https://open.spotify.com/user/31yapch6pln2ytkm3raieemqr3v4)!!!
+
+## rules of the internet
+
+1. Dont download shady stuff of the internet
+2. Dont enter shady sites of the internet
+3. alway triple quadruple think before entering your details
+4. If something is too good to be true, its most likely a scam
+5. Always check if it's the correct domain for the service
+6. Use different passwords everywhere
+7. Use Multi Factor Authentication if possible
+8. Delete unused accounts
