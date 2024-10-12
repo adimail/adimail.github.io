@@ -22,3 +22,5 @@ assets/js/dist
 
 # IDE
 *.vscode
+
+.DS_Store
