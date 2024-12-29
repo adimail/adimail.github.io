@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>projects | adimail</title>
+    <link href="../styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main style="margin-bottom: 90px; margin-top: 90px">
+      <h1><a href="/">Aditya's</a> fun projects</h1>
+      <p><a href="/projects">Here</a> is a list of all projects.</p>
+      <hr class="seperator" />
+      <section class="projects">
+        <div class="project-entry">
+          <a target="_blank" href="https://github.com/adimail/pdftools"
+            >PDFTools</a
+          >
+          <p class="intro">Dec 2024 | Python</p>
+          <div class="desc">
+            PDFTools is a collection of Python utilities designed for PDF
+            automation. It includes scripts for grayscale and color inversion
+            for PDF files. This project aims to provide simple tools for working
+            with PDFs and can be extended to include other automation tasks in
+            the future. I love ILovePDF, but I noticed there are some tasks that
+            certain software can’t handle, which require a more hands-on
+            approach. My sister needed to print some lecture notes, but the
+            teacher had provided them with notes that had a black background,
+            and the printer refused to print them, saying it would look bad. She
+            asked me for help, and I knew I could first convert the PDF to
+            grayscale and then invert the colors (black to white, white to
+            black) to make the text readable. The online tools I found were too
+            slow, and they uploaded the files to a server, which I didn’t like.
+            I don’t understand why online PDF and multimedia tools don’t use
+            technologies like WASM to handle operations on the client side. So,
+            I wrote these simple scripts to accomplish this task, and my sister
+            was happy with the results. I will be adding more scripts as needed.
+            Perhaps I will move this to my serious list soon.
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <a target="_blank" href="https://github.com/adimail/web-minifier"
+            >Web Minifier (Perl script)</a
+          >
+          <p class="intro">Dec 2024 | Perl</p>
+          <div class="desc">
+            This Perl script minifies JavaScript and CSS files by removing
+            comments, unnecessary whitespace, and optimizing values. It can be
+            used in one-time mode or in watch mode, where it automatically
+            processes files whenever they are modified. The script also supports
+            custom configuration for input and output directories.
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <a target="_blank" href="https://github.com/adimail/sisypus"
+            >Sisyphus</a
+          >
+          <p class="intro">Nov 2024 | Go</p>
+          <div class="desc">
+            Sisyphus is a minimal, terminal-based to-do list app built with the
+            Go programming language. It uses the gocui library for building user
+            interfaces in the terminal (used by lazygit as well). The app helps
+            you manage tasks in a simple, efficient way from the command line.
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <a target="_blank" href="https://github.com/adimail/dns-resolver"
+            >DNS Resolver</a
+          >
+          <p class="intro">Oct 2024 | Go</p>
+          <div class="desc">
+            I didn't do well in my computer networks exam, so I decided to build
+            a DNS resolver to learn more. I created a DNS resolver in Go. The
+            resolver handles DNS queries, checks its cache, and queries upstream
+            servers for records like A and CNAME.
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <a target="_blank" href="https://github.com/adimail/headsup"
+            >Heads Up ACM</a
+          >
+          <p class="intro">Sept 2024 | Flutter</p>
+          <div class="desc">
+            I lernt fluter basics and built this game in ONE DAY.Heads Up ACM is
+            a mobile game developed in Flutter. It allows users to play a
+            guessing game where they hold their phone to their forehead and
+            receive clues from friends. The game is built using Flutter and the
+            sensors_plus Dart package to handle the phone's accelerometer for
+            game mechanics.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,232 @@
+%-------------------------
+% Resume in Latex
+% Author : Aditya Godse
+% License : MIT
+%------------------------
+
+\documentclass[a4paper,11pt]{article}
+
+% -------------------- PACKAGE IMPORTS --------------------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage[version=4]{mhchem}
+
+% Unicode support for PDFs (makes it ATS parsable)
+\input{glyphtounicode}
+
+% -------------------- PAGE LAYOUT --------------------
+\pagestyle{fancy}
+\fancyhf{}                          % Clear default header/footer
+\fancyfoot{}                        % No footer
+\renewcommand{\headrulewidth}{0pt}  % Remove header rule
+\renewcommand{\footrulewidth}{0pt}  % Remove footer rule
+
+% Adjusting margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.50in}
+\addtolength{\textheight}{1.0in}
+
+% URL formatting
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}  % Control the space between columns in tabularx
+
+% -------------------- SECTION FORMATTING --------------------
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+\titleformat{\subsection}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{\hspace{-.15in}}{0em}{}[\color{black}\vspace{-8pt}]
+
+% Ensure that generated PDFs are machine-readable (ATS parsable)
+\pdfgentounicode=1
+
+% -------------------- CUSTOM COMMANDS --------------------
+% Item list with custom spacing
+\newcommand{\customSmallList}[2]{%
+  \begin{itemize}[leftmargin=0.15in, label={}, itemsep=#1, parsep=#2]
+    \footnotesize
+    #2
+  \end{itemize}%
+}
+
+% Command for single resume item
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+% Command for adding a resume subheading (institution, date, role)
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+% Command for a sub-subheading within a resume
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+% Command for project heading
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+% Command to start/end subheading list
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+% Command to start/end item list
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% Changing bullet point style for nested itemize
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% Adjusting footer height
+\setlength{\footskip}{4.08003pt}
+
+% -----------------------------------------------------------
+% -------------------- START OF DOCUMENT --------------------
+\begin{document}
+
+% -------------------- HEADING --------------------
+\begin{center}
+  \textbf{\Huge \scshape Aditya Godse} \\ \vspace{8pt}
+  \small
+  \faIcon{github} \href{https://github.com/adimail}{\underline{\textcolor{blue}{github.com/adimail}}} $  $
+  \faIcon{globe} \href{https://adimail.github.io/}{\underline{\textcolor{blue}{adimail.github.io}}} $  $
+  \faIcon{linkedin} \href{https://www.linkedin.com/in/adimail2404/}{\underline{\textcolor{blue}{linkedin/adimail2404}}} $  $
+  \faIcon{envelope} \href{mailto:adimail2404@gmail.com}{\underline{\textcolor{blue}{adimail2404@gmail.com}}}
+\end{center}
+
+% -------------------- EDUCATION --------------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {AISSMS Institute of Information Technology}{June 2026}
+      {Bachelor of Technology in Artificial Intelligence and Data Science}{CGPA: 7.72/10, Pune, India}
+    \resumeItemListStart
+      \resumeItem{Minor Course: Instrumentation Engineering}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+% -------------------- SKILLS --------------------
+\section{Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    \small{
+        \item \textbf{Languages}{: Typescript, Go, Python, C/C++, bash, Perl} \\
+        \item \textbf{Tools}{: CI/CD pipelines, GraphQL, Shell scripts, React, AWS cloud, Google Cloud, PyTorch, PostgreSQL, Three.JS} \\
+    }
+\end{itemize}
+
+% -------------------- EXPERIENCE --------------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+    {\textbf{\href{https://github.com/openssl/openssl/pull/25796}{OpenSSL, OpenSource Contributor}} $|$ \footnotesize\emph{C, Perl, testing, bash}}{Oct. 2024 - Present}
+    \resumeItemListStart
+        \resumeItem{\href{https://github.com/openssl/openssl/pull/25796}{Implemented new -cipher CLI option in OpenSSL's req command enabling users to specify private key encryption algorithms, enhancing security flexibility beyond previous default 3DES encryption. (PR:25796)}}
+        \resumeItem{Updated default ciphers for for req, cms and smime apps, and updated documentation for man pages and usage examples, following OpenSSL's strict coding and documentation standards. (PR: 25839)}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\textbf{Webmaster, \href{https://ioit.acm.org/}{IOIT ACM Student Chapter} (Professional Body)} $|$ \footnotesize\emph{Management, SEO}}{Sept. 2024 - Present}
+    \resumeItemListStart
+        \resumeItem{Designed and developed the \href{https://ioittenet.com/}{\textbf{IOIT TENET}} website, reaching 15,000 users within just 3 weeks.}
+        \resumeItem{Increased event registration by implementing custom forms and building visually engaging 3D animations using GSAP, Three.js, and WebGL.}
+        \resumeItem{\href{https://www.ioittenet.com/events/web3-panel}{Moderated a \textbf{Web3 panel discussion} at TENET'24 before an audience of 200 students.}}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\textbf{Chief Technology Officer, Hosteze (Startup)} $|$ \footnotesize\emph{AWS, System Design, GraphQL, Next.JS}}{Feb. 2024 - Sept 2024}
+    \resumeItemListStart
+        \resumeItem{Led the design, development, testing, and maintenance of the core product, ensuring seamless functionality while maintaining comprehensive technical documentation for the entire codebase.}
+        \resumeItem{Built an internal CRM tool with an ETL data pipeline that analyzes over 500 housing listings weekly to improve customer outreach.}
+    \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+% -------------------- PROJECTS --------------------
+\section{Projects}
+\resumeSubHeadingListStart
+
+    \resumeProjectHeading
+    {\href{https://github.com/adimail/headsup}{\textbf{headsup (flutter)}}}{Aug. 2024}
+    \resumeItemListStart
+        \resumeItem{Built a mobile game in 1 day to be featured at an event, demonstrating proficiency in rapid prototyping.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\href{https://mermaid-mind.vercel.app/}{\textbf{Mermaid Mind (Web/LLM)}} $|$ \footnotesize\emph{Monaco Editor, LLM, Gemini, Next.js, MongoDB, NextAuth, tRPC}}{May. 2024}
+    \resumeItemListStart
+        \resumeItem{Created a web application that leverages the Gemini-1.5-pro language model to generate Mermaid diagrams from natural language inputs, streamlining the diagram creation process for technical users.}
+        \resumeItem{Implemented server-side actions using tRPC and managed client-side state efficiently with Zustand.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\href{https://github.com/adimail/moneyball-native}{\textbf{Moneyball (Android/IOS/Web)}} $|$ \footnotesize\emph{React Native, JavaScript, Firebase, Google Cloud, Mobile Development}}{Feb. 2024}
+    \resumeItemListStart
+        \resumeItem{Cross-platform application to manage financial history with Firebase as a backend.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\href{https://github.com/adimail/torrent-client}{\textbf{bittorrent client (CLI Tool)}} $|$ \footnotesize\emph{Go, Concurrency patterns, Bittorrent, Unit Testing, Bencoding}}{Jan. 2024}
+    \resumeItemListStart
+        \resumeItem{Created a lightweight software application to download large files using the BitTorrent protocol.}
+        \resumeItem{A peer-to-peer (P2P) communication protocol for distributing large amounts of data over the internet.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\href{https://adimail.github.io/visual-data-structures/}{\textbf{Visual Code Studio (Web)}} $|$ \footnotesize\emph{TypeScript, React}}{Dec. 2023}
+    \resumeItemListStart
+        \resumeItem{Developed a simulator that visualizes over 15+ different data structures and pathfinding algorithms.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\href{https://github.com/adimail/Webscrapping_watershed_pune_district}{\textbf{Maharashtra watershed web scraper (python)}} $|$ \footnotesize\emph{python, Beautiful Soup}}{Nov. 2023}
+    \resumeItemListStart
+        \resumeItem{Collaborated on a research project with college faculty, extracting watershed information for over 3000 villages in Maharashtra via web scraping the government site for validating a QGIS model.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% -------------------- OTHER ACHIEVEMENTS --------------------
+\section{Other Achievements}
+\begin{itemize}
+    \footnotesize
+    \setlength\itemsep{-1pt}
+    \item Title Holder for Asia's Largest Painting on Recycled Paper Canvas \hfill (Aug. 2021)
+    \item Scientist of the Year Award in highschool for Active Participation in Science Fairs \hfill (Feb. 2019)
+    \item 2-time National Level Rope Skipping Gold Medalist (Double unders \& Spot jump) \hfill (2016 - 2017)
+\end{itemize}
+
+\end{document}
