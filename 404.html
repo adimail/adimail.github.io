@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>404</title>
-    <link href="./styles.css" rel="stylesheet" />
+    <link href="/styles.css" rel="stylesheet" />
   </head>
   <body>
     <main class="headcontent">
@@ -29,7 +29,7 @@
       document.getElementById("current-url").textContent = currentURL;
 
       const randomIndex = Math.floor(Math.random() * 7) + 1;
-      const randomImage = `assets/404/${randomIndex}.jpg`;
+      const randomImage = `/assets/404/${randomIndex}.jpg`;
       document.getElementById("random-image").src = randomImage;
     </script>
   </body>
