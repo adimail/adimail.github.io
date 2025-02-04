@@ -129,29 +129,36 @@ main {
 }
 
 .project-entry {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   padding-bottom: 1rem;
   max-width: 100%;
 }
 
 .project-entry a {
+  font-size: 18px;
   display: block;
   margin-bottom: 15px;
   width: fit-content;
+  text-decoration: none;
+}
+
+.project-entry a:hover {
+  text-decoration: underline;
 }
 
 .project-entry .desc {
+  margin-top: 10px;
   color: var(--font-color-desc);
   line-height: 1.5;
 }
 
 .intro {
-  font-size: var(--font-size-intro);
+  font-size: 12px;
   font-style: italic;
-  display: block;
-  margin-bottom: 10px;
   background-color: #ffdfdf;
   width: fit-content;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .desc,
@@ -216,6 +223,10 @@ ul li a:hover {
 @media (max-width: 786px) {
   body {
     font-size: var(--font-size-small);
+  }
+
+  .project-entry a {
+    font-size: 18px;
   }
 
   .headcontent {
