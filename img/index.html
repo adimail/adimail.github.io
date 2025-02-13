@@ -54,7 +54,8 @@
 
     <script>
       function generateRandomImage() {
-        const randomIndex = Math.floor(Math.random() * 87) + 1;
+        const images = 87;
+        const randomIndex = Math.floor(Math.random() * images) + 1;
         const randomImage = `/assets/images/random/${randomIndex}.jpeg`;
         document.getElementById("random-image").src = randomImage;
       }
