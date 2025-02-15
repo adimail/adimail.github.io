@@ -33,13 +33,6 @@ jobs:
           echo "Found $IMAGE_COUNT images"
           sed -i "s/const images = [0-9]*;/const images = $IMAGE_COUNT;/" img/index.html
 
-      - name: Insert GA4 snippet in all HTML files
-        run: |
-          GA_SNIPPET=$'\n<!-- Global site tag (gtag.js) - Google Analytics -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=G-54DJJSHDCM"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag("js", new Date());\n  gtag("config", "G-54DJJSHDCM");\n</script>'
-          for file in $(find . -name '*.html'); do
-            sed -i "s@<head>@<head>$GA_SNIPPET@" "$file"
-          done
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
