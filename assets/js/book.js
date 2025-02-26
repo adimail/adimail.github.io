@@ -1,4 +1,4 @@
-import * as THREE from "three";
+import * as THREE from 'three';
 
 function initializeBook(canvas) {
   const cover = canvas.dataset.cover;
@@ -9,7 +9,7 @@ function initializeBook(canvas) {
     40,
     container.clientWidth / container.clientHeight,
     0.7,
-    1000,
+    1000
   );
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
@@ -47,16 +47,16 @@ function initializeBook(canvas) {
   // Interaction variables
   let isDragging = false;
   let previousPosition = { x: 0, y: 0 };
-  let dragRotation = { x: 0, y: 0 };
+  let dragRotation = { x: 0, y: 0, z: 0 };
 
   // Mouse event listeners
-  canvas.addEventListener("mousedown", (event) => {
+  canvas.addEventListener('mousedown', (event) => {
     isDragging = true;
     previousPosition.x = event.clientX;
     previousPosition.y = event.clientY;
   });
 
-  canvas.addEventListener("mousemove", (event) => {
+  canvas.addEventListener('mousemove', (event) => {
     if (isDragging) {
       const deltaMove = {
         x: event.clientX - previousPosition.x,
@@ -71,23 +71,23 @@ function initializeBook(canvas) {
     }
   });
 
-  canvas.addEventListener("mouseup", () => {
+  canvas.addEventListener('mouseup', () => {
     isDragging = false;
   });
 
-  canvas.addEventListener("mouseleave", () => {
+  canvas.addEventListener('mouseleave', () => {
     isDragging = false;
   });
 
   // Touch event listeners
-  canvas.addEventListener("touchstart", (event) => {
+  canvas.addEventListener('touchstart', (event) => {
     isDragging = true;
     const touch = event.touches[0];
     previousPosition.x = touch.clientX;
     previousPosition.y = touch.clientY;
   });
 
-  canvas.addEventListener("touchmove", (event) => {
+  canvas.addEventListener('touchmove', (event) => {
     if (isDragging) {
       const touch = event.touches[0];
       const deltaMove = {
@@ -106,7 +106,7 @@ function initializeBook(canvas) {
     }
   });
 
-  canvas.addEventListener("touchend", () => {
+  canvas.addEventListener('touchend', () => {
     isDragging = false;
   });
 
@@ -117,17 +117,25 @@ function initializeBook(canvas) {
     camera.updateProjectionMatrix();
   }
 
-  window.addEventListener("resize", resizeCanvas);
+  window.addEventListener('resize', resizeCanvas);
 
   // Animation loop
   function animate() {
     requestAnimationFrame(animate);
 
     if (!isDragging) {
+      // Auto-rotation when not dragging
       book.rotation.y += 0.01;
     } else {
+      // Apply rotation from drag
+      book.rotation.x += dragRotation.x;
       book.rotation.y += dragRotation.y;
+      book.rotation.z += dragRotation.z;
+
+      // Reset drag rotation after applying
+      dragRotation.x = 0;
       dragRotation.y = 0;
+      dragRotation.z = 0;
     }
 
     renderer.render(scene, camera);
@@ -138,6 +146,6 @@ function initializeBook(canvas) {
 }
 
 // Initialize each canvas
-document.querySelectorAll(".book-canvas").forEach((canvas) => {
+document.querySelectorAll('.book-canvas').forEach((canvas) => {
   initializeBook(canvas);
 });
