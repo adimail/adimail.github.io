@@ -1,10 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Random image by Aditya</title>
     <link href="../styles.css" rel="stylesheet" />
+    <link rel="icon" href="/sonchafa.png" type="icon" />
+    <script src="/theme.js"></script>
     <style>
       body {
         margin: 0;
@@ -57,7 +59,7 @@
         const images = 87;
         const randomIndex = Math.floor(Math.random() * images) + 1;
         const randomImage = `/assets/images/random/${randomIndex}.jpeg`;
-        document.getElementById("random-image").src = randomImage;
+        document.getElementById('random-image').src = randomImage;
       }
       generateRandomImage();
     </script>

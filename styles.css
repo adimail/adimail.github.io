@@ -18,6 +18,18 @@
   --book-bg-color: #9c9c9c;
   --book-title-color: #333;
   --book-desc-color: #666;
+
+  --dark-text-color: #fff;
+  --dark-text-color-alt: #aaa;
+  --dark-background-color: #1a1a1a;
+  --dark-background-color-alt: #2a2a2a;
+  --dark-selection-text-color: #3c3c3c;
+  --dark-selection-bg-color: rgb(239, 239, 42);
+  --dark-font-color-desc: #bbb;
+  --dark-book-bg-color: #333;
+  --dark-book-title-color: #fff;
+  --dark-book-desc-color: #bbb;
+
   font-optical-sizing: auto;
   font-style: normal;
   font-variant-numeric: tabular-nums lining-nums;
@@ -33,8 +45,12 @@ body {
   font-size: var(--font-size);
   margin: 0;
   padding: 0;
-  color: #393939;
+  color: var(--text-color);
   font-family: var(--font-family);
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 ::selection {
@@ -122,6 +138,7 @@ main {
 
 .head p i {
   font-size: small;
+  color: var(--text-color-alt);
 }
 
 .projects {
@@ -234,6 +251,11 @@ ul li a:hover {
     padding: 0;
   }
 
+  .theme-toggle {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
   h2 {
     font-size: var(--font-size-h2);
   }
@@ -272,12 +294,10 @@ ul li a:hover {
   .seprator {
     height: 1px;
     width: 100%;
-    background-image: -webkit-linear-gradient(
-      left,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.75),
-      rgba(0, 0, 0, 0)
-    );
+    background-image: -webkit-linear-gradient(left,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0));
     padding: 0;
     margin: 20px 0;
     border: 0;
@@ -300,4 +320,77 @@ ul li a:hover {
   .book-description p {
     font-size: 0.9rem;
   }
+}
+
+[data-theme="dark"] {
+  --text-color: var(--dark-text-color);
+  --text-color-alt: var(--dark-text-color-alt);
+  --background-color: var(--dark-background-color);
+  --background-color-alt: var(--dark-background-color-alt);
+  --selection-text-color: var(--dark-selection-text-color);
+  --selection-bg-color: var(--dark-selection-bg-color);
+  --font-color-desc: var(--dark-font-color-desc);
+  --book-bg-color: var(--dark-book-bg-color);
+  --book-title-color: var(--dark-book-title-color);
+  --book-desc-color: var(--dark-book-desc-color);
+}
+
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--background-color-alt);
+  color: var(--text-color);
+  border: 1px solid var(--text-color-alt);
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  background: var(--text-color);
+  color: var(--background-color);
+}
+
+p,
+ul li,
+ol li {
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.head p i {
+  font-size: small;
+  color: var(--text-color-alt);
+}
+
+[data-theme="dark"] .seprator {
+  background-image: -webkit-linear-gradient(left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0));
+}
+
+[data-theme="dark"] .intro {
+  background-color: #347789;
+  color: var(--text-color);
+}
+
+ul li,
+ol li {
+  color: var(--text-color);
 }
