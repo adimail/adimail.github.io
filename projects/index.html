@@ -19,8 +19,15 @@
             <hr class="seperator" />
             <section class="projects">
                 <div class="project-entry">
+                    <a target="_blank" href="https://github.com/adimail/rocket-landing-rl">Autonomous Rocket Landing Simulator via Reinforcement Learning 🔗</a>
+                    <p class="intro">Apr 2025 | Reinforcement Learning, Classical Mechanics, Physics, Mathematics, websockets, agents</p>
+                    <div class="desc">
+                        I find reinforcement learning fascinating, so I built this simulation where an agent learns to land a booster vertically. It uses a custom physics engine (including Verlet integration) to model key factors like thrust, gravity, rotation, and air resistance. I added a live visualizer so I can watch the agent refine its landing technique – tweaking throttle and cold gas thrusters – as it trains. I set up a Gymnasium environment, used Stable-Baselines3 for the PPO agent, and built a simple web interface to visualize the attempts.
+                    </div>
+                </div>
+                <div class="project-entry">
                     <a target="_blank" href="https://github.com/adimail/Notebook-X">Notebook-X | A Lightweight, Customizable Python Notebook 🔗</a>
-                    <p class="intro">Jan 2025 | Python, typescript, tornado, ZeroMQ, WebSockets, IPython</p>
+                    <p class="intro">Mar 2025 | Python, typescript, tornado, ZeroMQ, WebSockets, IPython</p>
                     <div class="desc">
                         I wanted to build a Jupyter Notebook clone my way, so I made one from scratch! It handles directory browsing, notebook editing, code execution, and rich outputs like images, HTML, and errors. I did not use jupyter_server and jupyter_client (which gives a lot of functionalities out of the box) because I wanted to implement the logic on my own. The only jupyter package I used was nbformat (It handles the serialization and deserialization of .ipynb files) because dealing with .ipynb files manually is a pain. Some new technologies I got to work on while working on this project includes Tornado webservers for async io, ZeroMQ, WebSockets, IPython, and Webpack for typescript. I read on the internet that many data scientist and security researchers use Jupiter notebooks in their daily life. I also noticed that companies like databricks have their own notebook platforms. So I wanted to build this from scratch to see how big tech uses this technology.
                     </div>
