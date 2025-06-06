@@ -100,14 +100,14 @@ main {
   display: flex;
   margin: auto;
   text-align: center;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
 }
 
 .text {
   flex: 1;
   text-align: left;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .info {
@@ -118,7 +118,7 @@ main {
   position: sticky;
   top: 0;
   flex: 1;
-  height: 75vh;
+  height: 100vh;
   display: flex;
   text-align: center;
   align-items: center;
@@ -129,6 +129,10 @@ main {
   max-width: 100%;
   max-height: 100%;
   border-radius: 50%;
+}
+
+.headcontent .image img {
+  height: 75%;
 }
 
 .head {
@@ -291,13 +295,15 @@ ul li a:hover {
     padding: 0 0 0 20px;
   }
 
-  .seprator {
+  .seperator {
     height: 1px;
     width: 100%;
-    background-image: -webkit-linear-gradient(left,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.75),
-        rgba(0, 0, 0, 0));
+    background-image: -webkit-linear-gradient(
+      left,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0)
+    );
     padding: 0;
     margin: 20px 0;
     border: 0;
@@ -378,11 +384,17 @@ p {
   color: var(--text-color-alt);
 }
 
-[data-theme="dark"] .seprator {
-  background-image: -webkit-linear-gradient(left,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0.75),
-      rgba(255, 255, 255, 0));
+.seperator {
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+[data-theme="dark"] .seperator {
+  background-color: white;
 }
 
 [data-theme="dark"] .intro {
