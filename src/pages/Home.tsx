@@ -20,7 +20,7 @@ export const Home: React.FC = () => {
                 22-year-old Computer Science graduate &bull; Pune, India (IST / UTC+5:30)
               </p>
               <p className="text-zinc-800 mt-2">
-                My areas of interest are cloud architectures, real-time telemetry pipelines, and low-latency distributed services. I enjoy breaking down complex problems from first principles and building fast, resilient software. Experienced in building interfaces with complex state, real-time interactions, and careful attention to performance and visual detail. Read my{' '}
+                I like building fast, dependable software from first principles spanning Cloud infrastructure, distributed systems, real-time data pipelines, and responsive interfaces. I care deeply about good craft, clean abstractions, and software that feels great to use. Read my{' '}
                 <Link to="/about">
                   Background, Stack &amp; Philosophy
                 </Link>
@@ -48,7 +48,7 @@ export const Home: React.FC = () => {
                 </a>)</span>
               </h2>
               <div className="space-y-2 text-zinc-800">
-                <div className="flex items-baseline w-full">
+                <div className="flex items-baseline justify-between w-full">
                   <span className="shrink-0">
                     Chairperson @{' '}
                     <a
@@ -59,12 +59,12 @@ export const Home: React.FC = () => {
                       IOIT ACM
                     </a>
                   </span>
-                  <span className="grow mx-2 border-b border-dotted border-zinc-400"></span>
+                  <span className="hidden md:block grow mx-2 border-b border-dotted border-zinc-400"></span>
                   <span className="shrink-0 text-[10px] sm:text-xs text-zinc-500 whitespace-nowrap">
                     May 25 &ndash; May 26
                   </span>
                 </div>
-                <div className="flex items-baseline w-full">
+                <div className="flex items-baseline justify-between w-full">
                   <span className="shrink-0">
                     Webmaster @{' '}
                     <a
@@ -75,12 +75,12 @@ export const Home: React.FC = () => {
                       IOIT ACM
                     </a>
                   </span>
-                  <span className="grow mx-2 border-b border-dotted border-zinc-400"></span>
+                  <span className="hidden md:block grow mx-2 border-b border-dotted border-zinc-400"></span>
                   <span className="shrink-0 text-[10px] sm:text-xs text-zinc-500 whitespace-nowrap">
                     May 24 &ndash; May 25
                   </span>
                 </div>
-                <div className="flex items-baseline w-full">
+                <div className="flex items-baseline justify-between w-full">
                   <span className="shrink-0">
                     Founding Engineer @{' '}
                     <a
@@ -91,7 +91,7 @@ export const Home: React.FC = () => {
                       Hosteze
                     </a>
                   </span>
-                  <span className="grow mx-2 border-b border-dotted border-zinc-400"></span>
+                  <span className="hidden md:block grow mx-2 border-b border-dotted border-zinc-400"></span>
                   <span className="shrink-0 text-[10px] sm:text-xs text-zinc-500 whitespace-nowrap">
                     Feb 24 &ndash; May 25
                   </span>
@@ -146,7 +146,7 @@ export const Home: React.FC = () => {
                     3D Spatial Film Database
                   </a>
                   <span className="text-zinc-500 text-xs block sm:inline sm:ml-2">
-                    &mdash; Interactive multidimensional film explorer with WebGL
+                    <span className='hidden md:inline-block'>&mdash;</span> Interactive multidimensional film explorer with WebGL
                   </span>
                 </li>
                 <li>
@@ -158,7 +158,7 @@ export const Home: React.FC = () => {
                     Rocket Landing RL
                   </a>
                   <span className="text-zinc-500 text-xs block sm:inline sm:ml-2">
-                    &mdash; Real-Time Fleet Telemetry for Deep RL Rocket Landing Simulation &amp; Visualization Platform
+                    <span className='hidden md:inline-block'>&mdash;</span> Real-Time Fleet Telemetry for Deep RL Rocket Landing Simulation &amp; Visualization Platform
                   </span>
                 </li>
                 <li>
@@ -170,7 +170,7 @@ export const Home: React.FC = () => {
                     Notebook-X
                   </a>
                   <span className="text-zinc-500 text-xs block sm:inline sm:ml-2">
-                    &mdash; Zero-dependency interactive web Python notebook kernel
+                    <span className='hidden md:inline-block'>&mdash;</span> Zero-dependency interactive web Python notebook kernel
                   </span>
                 </li>
               </ul>

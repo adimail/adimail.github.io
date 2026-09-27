@@ -21,6 +21,10 @@ body {
     text-align: left;
   }
 
+  ul, ol, li {
+    text-align: left;
+  }
+
   p {
     text-align: justify;
     text-justify: inter-word;

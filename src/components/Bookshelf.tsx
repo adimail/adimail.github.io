@@ -190,8 +190,11 @@ export const Bookshelf: React.FC = () => {
 
     let isPointerDown = false;
     let dragStartX = 0;
+    let dragStartY = 0;
     let dragStartScroll = 0;
     let didDrag = false;
+    let isShelfDragActive = false;
+    let isGestureDetermined = false;
 
     const clampScroll = (val: number) => {
       return Math.max(Math.min(minScroll, maxScroll), Math.min(Math.max(minScroll, maxScroll), val));
@@ -206,26 +209,46 @@ export const Bookshelf: React.FC = () => {
     const onPointerDown = (e: PointerEvent) => {
       isPointerDown = true;
       dragStartX = e.clientX;
+      dragStartY = e.clientY;
       dragStartScroll = targetScrollXRef.current;
       didDrag = false;
+      isShelfDragActive = e.pointerType !== 'touch';
+      isGestureDetermined = e.pointerType !== 'touch';
     };
 
     const onPointerMove = (e: PointerEvent) => {
       if (isPointerDown) {
-        const deltaPx = e.clientX - dragStartX;
-        if (Math.abs(deltaPx) > 5) {
-          didDrag = true;
+        const deltaX = e.clientX - dragStartX;
+        const deltaY = e.clientY - dragStartY;
+
+        if (!isGestureDetermined) {
+          if (Math.abs(deltaY) > 6 && Math.abs(deltaY) > Math.abs(deltaX)) {
+            isPointerDown = false;
+            isShelfDragActive = false;
+            isGestureDetermined = true;
+            return;
+          }
+          if (Math.abs(deltaX) > 6 && Math.abs(deltaX) >= Math.abs(deltaY)) {
+            isShelfDragActive = true;
+            isGestureDetermined = true;
+          }
         }
-        const worldWidth = getVisibleWorldWidth();
-        const deltaWorld = (deltaPx / canvas.clientWidth) * worldWidth;
-        targetScrollXRef.current = clampScroll(dragStartScroll + deltaWorld);
+
+        if (isShelfDragActive) {
+          if (Math.abs(deltaX) > 5) {
+            didDrag = true;
+          }
+          const worldWidth = getVisibleWorldWidth();
+          const deltaWorld = (deltaX / canvas.clientWidth) * worldWidth;
+          targetScrollXRef.current = clampScroll(dragStartScroll + deltaWorld);
+        }
       } else {
         hoveredIndexRef.current = getHitIndex(e.clientX, e.clientY);
       }
     };
 
     const onPointerUp = (e: PointerEvent) => {
-      if (!didDrag) {
+      if (isPointerDown && !didDrag) {
         const hit = getHitIndex(e.clientX, e.clientY);
         if (hit === null) {
           selectedIndexRef.current = null;
@@ -237,10 +260,20 @@ export const Bookshelf: React.FC = () => {
         }
       }
       isPointerDown = false;
+      isShelfDragActive = false;
+      isGestureDetermined = false;
+    };
+
+    const onPointerCancel = () => {
+      isPointerDown = false;
+      isShelfDragActive = false;
+      isGestureDetermined = false;
     };
 
     const onPointerLeave = () => {
       isPointerDown = false;
+      isShelfDragActive = false;
+      isGestureDetermined = false;
       mouse.set(-1000, -1000);
       hoveredIndexRef.current = null;
     };
@@ -259,6 +292,7 @@ export const Bookshelf: React.FC = () => {
     canvas.addEventListener('pointerdown', onPointerDown);
     canvas.addEventListener('pointermove', onPointerMove);
     canvas.addEventListener('pointerup', onPointerUp);
+    canvas.addEventListener('pointercancel', onPointerCancel);
     canvas.addEventListener('pointerleave', onPointerLeave);
     canvas.addEventListener('wheel', onWheel, { passive: false });
 
@@ -350,6 +384,7 @@ export const Bookshelf: React.FC = () => {
       canvas.removeEventListener('pointerdown', onPointerDown);
       canvas.removeEventListener('pointermove', onPointerMove);
       canvas.removeEventListener('pointerup', onPointerUp);
+      canvas.removeEventListener('pointercancel', onPointerCancel);
       canvas.removeEventListener('pointerleave', onPointerLeave);
       canvas.removeEventListener('wheel', onWheel);
       window.removeEventListener('resize', onResize);
@@ -372,9 +407,9 @@ export const Bookshelf: React.FC = () => {
     <div className="relative w-full select-none">
       <div
         ref={containerRef}
-        className="w-full h-[480px] bg-white overflow-hidden cursor-grab active:cursor-grabbing"
+        className="w-full h-[480px] bg-white overflow-hidden touch-pan-y cursor-grab active:cursor-grabbing"
       >
-        <canvas ref={canvasRef} className="w-full h-full block touch-none" />
+        <canvas ref={canvasRef} className="w-full h-full block touch-pan-y" />
       </div>
 
       {activeModalBook && (

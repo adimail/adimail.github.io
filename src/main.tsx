@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createRouter,
@@ -6,6 +6,7 @@ import {
   createRootRoute,
   RouterProvider,
   Outlet,
+  useRouterState,
 } from '@tanstack/react-router';
 
 import './index.css';
@@ -23,8 +24,45 @@ import { WritingPost } from './pages/WritingPost';
 import { ReadingPage } from './pages/ReadingPage';
 import { NotFound } from './pages/NotFound';
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    for (const registration of registrations) {
+      registration.unregister();
+    }
+  });
+}
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+const AnalyticsTracker: React.FC = () => {
+  const routerState = useRouterState();
+
+  useEffect(() => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('config', 'G-54DJJSHDCM', {
+        page_path: routerState.location.pathname,
+      });
+    }
+  }, [routerState.location.pathname]);
+
+  return null;
+};
+
+const RootComponent: React.FC = () => {
+  return (
+    <>
+      <AnalyticsTracker />
+      <Outlet />
+    </>
+  );
+};
+
 const rootRoute = createRootRoute({
-  component: () => <Outlet />,
+  component: RootComponent,
   notFoundComponent: NotFound,
 });
 
