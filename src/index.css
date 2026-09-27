@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+  }
+
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  a {
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+    padding: 0.05em 3px;
+    margin: -0.05em -3px;
+    text-decoration: none;
+    background-image: linear-gradient(to right, #ffffff 50%, #1d4ed8 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #dc2626;
+    border-radius: 2px;
+    z-index: -1;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  a:hover {
+    background-position: 0 0;
+  }
+
+  a:hover::before {
+    transform: scaleX(1);
+  }
+
+  a::selection {
+    -webkit-text-fill-color: initial;
+  }
+}
+
+@media (max-width: 786px) {
+  body {
+    font-size: 14px;
+  }
+}

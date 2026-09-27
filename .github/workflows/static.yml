@@ -24,19 +24,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build
+        run: bun run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
-      - name: Update image count in HTML
-        run: |
-          IMAGE_COUNT=$(find assets/images/random -type f -name '*.jpeg' | wc -l)
-          echo "Found $IMAGE_COUNT images"
-          sed -i "s/const images = [0-9]*;/const images = $IMAGE_COUNT;/" img/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
