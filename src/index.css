@@ -16,6 +16,13 @@ body {
   text-align: justify;
 }
 
+img {
+  max-height: 60vh;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     text-align: left;
@@ -76,3 +83,4 @@ body {
     font-size: 14px;
   }
 }
+

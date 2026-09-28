@@ -22,6 +22,7 @@ import { RandomImage } from './pages/RandomImage';
 import { Writings } from './pages/Writings';
 import { WritingPost } from './pages/WritingPost';
 import { ReadingPage } from './pages/ReadingPage';
+import { NotesPage } from './pages/NotesPage';
 import { NotFound } from './pages/NotFound';
 
 if ('serviceWorker' in navigator) {
@@ -138,6 +139,18 @@ const readingRoute = createRoute({
   component: ReadingPage,
 });
 
+const notesMdRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/notes.md',
+  component: NotesPage,
+});
+
+const notesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/notes',
+  component: NotesPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   aboutRoute,
@@ -151,6 +164,8 @@ const routeTree = rootRoute.addChildren([
   writingsRoute,
   writingPostRoute,
   readingRoute,
+  notesMdRoute,
+  notesRoute,
 ]);
 
 const router = createRouter({
@@ -173,3 +188,4 @@ if (!rootElement.innerHTML) {
     </React.StrictMode>
   );
 }
+

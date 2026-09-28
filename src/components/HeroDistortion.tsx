@@ -252,8 +252,11 @@ export const HeroDistortion: React.FC = () => {
         <Link to="/writings">
           Writings
         </Link>
-		<Link to="/reading">
+        <Link to="/reading">
           Reading
+        </Link>
+        <Link to="/notes.md">
+          Notes
         </Link>
         <a
           href="https://adimail.github.io/movies/"
@@ -262,10 +265,11 @@ export const HeroDistortion: React.FC = () => {
         >
           Movies
         </a>
-		<Link to="/about">
-		  About
-		</Link>
+        <Link to="/about">
+          About
+        </Link>
       </div>
     </div>
   );
 };
+

@@ -920,6 +920,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
               <Link to="/hackthons">Hackathons</Link>
               <Link to="/writings">Writings</Link>
               <Link to="/reading">Reading</Link>
+              <Link to="/notes.md">Notes</Link>
               <a
                 href="https://github.com/adimail"
                 target="_blank"
@@ -982,3 +983,4 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     </footer>
   );
 };
+

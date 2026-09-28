@@ -198,9 +198,12 @@ export const Home: React.FC = () => {
                     </span>
                   </div>
                 ))}
-                <div className="pt-2">
-                  <Link to="/writings" className="text-zinc-500 text-xs">
+                <div className="pt-2 grid gap-2">
+                  <Link to="/writings" className="text-zinc-500 text-xs w-fit">
                     &rarr; View all essays and writings
+                  </Link>
+                  <Link to="/notes.md" className="text-zinc-500 text-xs w-fit">
+                    &rarr; notes.md
                   </Link>
                 </div>
               </div>
