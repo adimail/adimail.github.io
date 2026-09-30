@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@tanstack/react-router';
-import { HeroDistortion } from '../components/HeroDistortion';
+import { HeroImage } from '../components/HeroImage';
 import { Footer } from '../components/Footer';
 import { getAllPosts, formatDate } from '../lib/posts';
 
@@ -35,7 +35,7 @@ export const Home: React.FC = () => {
 
             <div className="md:hidden w-full flex flex-col items-start my-2">
               <div className="w-full max-w-full sm:max-w-[330px] aspect-square relative">
-                <HeroDistortion />
+                <HeroImage />
               </div>
             </div>
 
@@ -252,7 +252,7 @@ export const Home: React.FC = () => {
 
           <div className="hidden md:flex md:col-span-5 md:sticky md:top-16 flex-col items-center md:items-start">
             <div className="w-full max-w-[330px] aspect-square relative">
-              <HeroDistortion />
+              <HeroImage />
             </div>
           </div>
         </div>
@@ -261,3 +261,4 @@ export const Home: React.FC = () => {
     </>
   );
 };
+

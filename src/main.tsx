@@ -40,6 +40,8 @@ declare global {
   }
 }
 
+const GA_MEASUREMENT_ID = 'G-54DJJSHDCM';
+
 const STATIC_TITLES: Record<string, string> = {
   '/': 'adimail',
   '/about': 'about — adimail',
@@ -67,7 +69,7 @@ const resolvePageTitle = (pathname: string): string => {
       return `${post.title} — adimail`;
     }
   }
-  return 'adimail';
+  return '404 — adimail';
 };
 
 const PageTracker: React.FC = () => {
@@ -78,8 +80,12 @@ const PageTracker: React.FC = () => {
     const title = resolvePageTitle(pathname);
     document.title = title;
 
+    if (!import.meta.env.PROD) {
+      return;
+    }
+
     if (typeof window.gtag === 'function') {
-      window.gtag('event', 'page_view', {
+      window.gtag('config', GA_MEASUREMENT_ID, {
         page_title: title,
         page_location: window.location.href,
         page_path: pathname,
@@ -225,3 +231,4 @@ if (!rootElement.innerHTML) {
     </React.StrictMode>
   );
 }
+

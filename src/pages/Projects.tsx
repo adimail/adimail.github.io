@@ -10,11 +10,14 @@ export const Projects: React.FC = () => {
         <Link to="/">Aditya's</Link> Projects
       </h1>
       <p className="mt-2 text-zinc-700">
-        A collection of engineering projects. You can also review my{' '}
+      </p>
+      <p className="mt-2 text-zinc-700">
+	  My portfolio reflects a somewhat unusual breadth of projects, but there is a common thread, I really enjoy taking something complicated, understanding it from first principles, and turning it into a system that actually works. A collection of engineering projects. You can also review my{' '}
         <Link to="/funproj">
           experimental and hobby projects
         </Link>
         .
+
       </p>
       <hr className="h-[1px] w-full bg-zinc-200 p-0 m-0 border-0 my-5" />
       <section className="mt-[40px]">

@@ -12,7 +12,7 @@ export const About: React.FC = () => {
         </h1>
 
         <p className="mt-3 text-zinc-700">
-          I am a cloud and systems engineer focused on turning complex, ambiguous technical challenges into modular, performant, and well-documented software. My engineering philosophy centers on systems thinking, rapid prototyping, and end-to-end product engineering, with a strong emphasis on delivering interfaces with complex state, real-time interactions, and careful attention to performance and visual detail. Having co-founded platforms across both AI engineering and proptech, I specialize in bridging the gap between cutting-edge models and production-grade systems.
+          I am a cloud and systems engineer focused on turning complex, ambiguous technical challenges into modular, performant, and well-documented software. My engineering philosophy centers on systems thinking, rapid prototyping, and end-to-end product engineering, with a strong emphasis on delivering interfaces with complex state, real-time interactions, and careful attention to performance and visual detail.
         </p>
         <p className="mt-3 text-zinc-700">
           My technical stack spans real-time data workflows, serverless cloud architectures, and autonomous agents. I build actively with languages around Python, TypeScript, Go, Java &amp; <a href='https://effectiveengineer.com/blog/master-adjacent-disciplines'>adjacent technologies</a>.

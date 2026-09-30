@@ -19,7 +19,7 @@ export const ProjectEntry: React.FC<ProjectEntryProps> = ({
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-lg font-bold text-zinc-900 block mb-2 w-fit"
+        className="text-lg font-bold mb-2 w-fit"
       >
         {title}
       </a>

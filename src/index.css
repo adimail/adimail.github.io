@@ -36,46 +36,54 @@ img {
     text-align: justify;
     text-justify: inter-word;
   }
+}
 
-  a {
-    position: relative;
-    display: inline-block;
-    vertical-align: baseline;
-    padding: 0.05em 3px;
-    margin: -0.05em -3px;
-    text-decoration: none;
-    background-image: linear-gradient(to right, #ffffff 50%, #1d4ed8 50%);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: background-position 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+a,
+a:link,
+a:visited,
+a:active,
+a:focus,
+.prose a {
+  display: inline !important;
+  color: #1d4ed8 !important;
+  text-decoration: none !important;
+  padding: 0.05em 3px;
+  border-radius: 2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-color: transparent;
+  background-image:
+    linear-gradient(to right, #ffffff 50%, #1d4ed8 50%),
+    linear-gradient(to right, #dc2626, #dc2626);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 200% 100%, 0% 100%;
+  background-position: 100% 0, 0 0;
+  -webkit-background-clip: text, border-box;
+  background-clip: text, border-box;
+  -webkit-text-fill-color: transparent;
+  transition:
+    background-position 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  a::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: #dc2626;
-    border-radius: 2px;
-    z-index: -1;
-    transform-origin: left;
-    transform: scaleX(0);
-    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+a *,
+.prose a * {
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  background: none !important;
+  text-decoration: none !important;
+}
 
-  a:hover {
-    background-position: 0 0;
-  }
+a:hover,
+a:focus-visible,
+.prose a:hover {
+  background-position: 0 0, 0 0;
+  background-size: 200% 100%, 100% 100%;
+}
 
-  a:hover::before {
-    transform: scaleX(1);
-  }
-
-  a::selection {
-    -webkit-text-fill-color: initial;
-  }
+a::selection,
+a *::selection {
+  -webkit-text-fill-color: initial;
 }
 
 @media (max-width: 786px) {
@@ -83,4 +91,3 @@ img {
     font-size: 14px;
   }
 }
-
