@@ -329,38 +329,42 @@ export const MediaViewer: React.FC<MediaViewerProps> = ({
 
         {isOpen && (
           <div
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col justify-between p-4"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-0"
             onClick={handleClose}
           >
-            <div className="flex items-center justify-end z-10 w-full" onClick={(e) => e.stopPropagation()}>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={downloadFile}
-                  className="p-2 rounded bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
-                  title="Download"
-                >
-                  <Download size={16} />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="p-2 rounded bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
-                  title="Close (Esc)"
-                >
-                  <X size={16} />
-                </button>
-              </div>
+            <div
+              className="absolute top-4 right-4 z-20 flex items-center gap-2"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={downloadFile}
+                className="p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-white transition-colors cursor-pointer border border-white/10"
+                title="Download"
+              >
+                <Download size={18} />
+              </button>
+              <button
+                type="button"
+                onClick={handleClose}
+                className="p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-white transition-colors cursor-pointer border border-white/10"
+                title="Close (Esc)"
+              >
+                <X size={18} />
+              </button>
             </div>
 
-            <div className="flex-1 flex items-center justify-center p-2" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="w-full h-full flex items-center justify-center p-2"
+              onClick={(e) => e.stopPropagation()}
+            >
               <video
                 ref={modalVideoRef}
                 src={src}
                 controls
                 autoPlay
                 loop={isLooping}
-                className="max-w-full max-h-[85vh] object-contain shadow-2xl"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
@@ -397,42 +401,40 @@ export const MediaViewer: React.FC<MediaViewerProps> = ({
 
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex flex-col select-none"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center select-none"
           onClick={handleClose}
         >
           <div
-            className="h-14 px-4 sm:px-6 flex items-center justify-end border-b border-zinc-800/80 bg-black/60 shrink-0"
+            className="absolute top-4 right-4 z-20 flex items-center gap-2"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={downloadFile}
-                className="p-2 rounded bg-white/10 hover:bg-white/20 text-zinc-200 transition-colors cursor-pointer"
-                title="Download"
-              >
-                <Download size={18} />
-              </button>
-              <button
-                type="button"
-                onClick={handleClose}
-                className="p-2 rounded bg-white/10 hover:bg-white/20 text-zinc-200 transition-colors cursor-pointer"
-                title="Close (Esc)"
-              >
-                <X size={18} />
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={downloadFile}
+              className="p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-zinc-200 transition-colors cursor-pointer border border-white/10"
+              title="Download"
+            >
+              <Download size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={handleClose}
+              className="p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-zinc-200 transition-colors cursor-pointer border border-white/10"
+              title="Close (Esc)"
+            >
+              <X size={18} />
+            </button>
           </div>
 
           <div
-            className="flex-1 overflow-auto flex items-center justify-center p-4 cursor-default"
+            className="w-full h-full flex items-center justify-center p-2 cursor-default"
             onClick={handleClose}
           >
             <img
               src={src}
               alt={alt}
               onClick={(e) => e.stopPropagation()}
-              className="max-h-[88vh] max-w-full object-contain"
+              className="w-full h-full max-w-none max-h-none object-contain"
             />
           </div>
         </div>

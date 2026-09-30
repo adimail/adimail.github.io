@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from '@tanstack/react-router';
 import { getPostBySlug } from '../lib/posts';
 import { BlogLayout } from '../components/BlogLayout';
@@ -13,9 +13,16 @@ export const WritingPost: React.FC = () => {
 
   const post = getPostBySlug(slug);
 
+  useEffect(() => {
+    if (post) {
+      document.title = `${post.title} — adimail`;
+    }
+  }, [post]);
+
   if (!post) {
     return <NotFound />;
   }
 
   return <BlogLayout post={post} />;
 };
+

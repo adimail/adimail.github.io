@@ -24,6 +24,7 @@ import { WritingPost } from './pages/WritingPost';
 import { ReadingPage } from './pages/ReadingPage';
 import { NotesPage } from './pages/NotesPage';
 import { NotFound } from './pages/NotFound';
+import { getPostBySlug } from './lib/posts';
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistrations().then((registrations) => {
@@ -39,16 +40,52 @@ declare global {
   }
 }
 
-const AnalyticsTracker: React.FC = () => {
+const STATIC_TITLES: Record<string, string> = {
+  '/': 'adimail',
+  '/about': 'about — adimail',
+  '/projects': 'projects — adimail',
+  '/funproj': 'fun projects — adimail',
+  '/hackthons': 'hackathons — adimail',
+  '/opensource': 'open source — adimail',
+  '/papers': 'papers — adimail',
+  '/work': 'work — adimail',
+  '/img': 'random image — adimail',
+  '/writings': 'writings — adimail',
+  '/reading': 'reading — adimail',
+  '/notes': 'notes — adimail',
+  '/notes.md': 'notes.md — adimail',
+};
+
+const resolvePageTitle = (pathname: string): string => {
+  if (STATIC_TITLES[pathname]) {
+    return STATIC_TITLES[pathname];
+  }
+  if (pathname.startsWith('/writings/')) {
+    const slug = pathname.replace('/writings/', '').replace(/\/$/, '');
+    const post = getPostBySlug(slug);
+    if (post) {
+      return `${post.title} — adimail`;
+    }
+  }
+  return 'adimail';
+};
+
+const PageTracker: React.FC = () => {
   const routerState = useRouterState();
+  const pathname = routerState.location.pathname;
 
   useEffect(() => {
+    const title = resolvePageTitle(pathname);
+    document.title = title;
+
     if (typeof window.gtag === 'function') {
-      window.gtag('config', 'G-54DJJSHDCM', {
-        page_path: routerState.location.pathname,
+      window.gtag('event', 'page_view', {
+        page_title: title,
+        page_location: window.location.href,
+        page_path: pathname,
       });
     }
-  }, [routerState.location.pathname]);
+  }, [pathname]);
 
   return null;
 };
@@ -56,7 +93,7 @@ const AnalyticsTracker: React.FC = () => {
 const RootComponent: React.FC = () => {
   return (
     <>
-      <AnalyticsTracker />
+      <PageTracker />
       <Outlet />
     </>
   );
@@ -188,4 +225,3 @@ if (!rootElement.innerHTML) {
     </React.StrictMode>
   );
 }
-

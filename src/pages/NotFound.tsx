@@ -7,6 +7,7 @@ export const NotFound: React.FC = () => {
   const currentUrl = typeof window !== 'undefined' ? window.location.href : routerState.location.href;
 
   useEffect(() => {
+    document.title = '404 — adimail';
     const randomIndex = Math.floor(Math.random() * 7) + 1;
     setImageSrc(`/assets/404/${randomIndex}.jpg`);
   }, []);
