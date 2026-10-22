@@ -4,7 +4,6 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Post, formatDate } from '../lib/posts';
 import { Layout } from './Layout';
-import { MobiusStrip } from './MobiusStrip';
 import { getMarkdownComponents } from './getMarkdownComponents';
 
 interface BlogLayoutProps {
@@ -98,7 +97,7 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({ post }) => {
   };
 
   return (
-    <Layout className="!max-w-[1200px] !px-6 !my-0 py-12 md:py-0 text-[15px] leading-relaxed relative">
+    <Layout className="!max-w-[760px] !px-6 text-[15px] leading-relaxed relative">
       {headings.length > 0 && (
         <aside
           className="hidden xl:block fixed right-8 top-1/2 -translate-y-1/2 z-40"
@@ -167,41 +166,35 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({ post }) => {
         </aside>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
-        <div className="lg:col-span-2 min-w-0 py-24">
-          <div className="mb-8">
-            <Link
-              to="/writings"
-              className="text-xs text-blue-700 inline-flex items-center gap-1"
-            >
-              &larr; Back to all writings
-            </Link>
+      <div className="min-w-0">
+        <div className="mb-8">
+          <Link
+            to="/writings"
+            className="text-xs text-blue-700 inline-flex items-center gap-1"
+          >
+            &larr; Back to all writings
+          </Link>
+        </div>
+
+        <header className="mb-8">
+          <h1 className="font-serif italic text-3xl sm:text-4xl font-normal text-black mb-3 leading-tight">
+            {post.title}
+          </h1>
+          <div className="text-xs text-zinc-500">
+            <time dateTime={post.date}>{formatDate(post.date)}</time>
           </div>
+        </header>
 
-          <header className="mb-8">
-            <h1 className="font-serif italic text-3xl sm:text-4xl font-normal text-black mb-3 leading-tight">
-              {post.title}
-            </h1>
-            <div className="text-xs text-zinc-500">
-              <time dateTime={post.date}>{formatDate(post.date)}</time>
-            </div>
-          </header>
+        <hr className="h-[1px] w-full bg-zinc-200 border-0 mb-8" />
 
-          <hr className="h-[1px] w-full bg-zinc-200 border-0 mb-8" />
-
-          <article className="space-y-6">
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              components={markdownComponents}
-            >
-              {post.content}
-            </ReactMarkdown>
-          </article>
-        </div>
-
-        <div className="hidden lg:flex lg:col-span-3 sticky top-0 h-screen items-center justify-center">
-          <MobiusStrip />
-        </div>
+        <article className="space-y-6">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={markdownComponents}
+          >
+            {post.content}
+          </ReactMarkdown>
+        </article>
       </div>
     </Layout>
   );
