@@ -10,7 +10,7 @@ export const FunProjects: React.FC = () => {
         <Link to="/">Aditya's</Link> Fun Projects
       </h1>
       <p className="mt-2 text-zinc-700">
-        You can inspect my primary engineering work on the{' '}
+        You can check my primary engineering work on the{' '}
         <Link to="/projects">
           projects page
         </Link>
@@ -106,7 +106,7 @@ export const FunProjects: React.FC = () => {
           A browser extension designed to store, manage, and inject modular custom instructions into web chat interfaces.
         </ProjectEntry>
       </section>
-      
+
     </Layout>
   );
 };

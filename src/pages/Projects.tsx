@@ -12,15 +12,30 @@ export const Projects: React.FC = () => {
       <p className="mt-2 text-zinc-700">
       </p>
       <p className="mt-2 text-zinc-700">
-	  My portfolio reflects a somewhat unusual breadth of projects, but there is a common thread, I really enjoy taking something complicated, understanding it from first principles, and turning it into a system that actually works. A collection of engineering projects. You can also review my{' '}
+        My portfolio reflects a somewhat unusual breadth of projects, but there is a common thread, I really enjoy taking something complicated, understanding it from first principles, and turning it into a system that actually works. A collection of engineering projects. You can also review my{' '}
         <Link to="/funproj">
           experimental and hobby projects
         </Link>
         .
-
       </p>
       <hr className="h-[1px] w-full bg-zinc-200 p-0 m-0 border-0 my-5" />
       <section className="mt-[40px]">
+        <ProjectEntry
+          title="KubeIngress: Cloud-Native Dynamic Ingress Controller"
+          link="https://github.com/adimail/KubeIngress"
+          intro="Go, Kubernetes, Envoy (xDS), PostgreSQL, gRPC, Angular, Docker"
+        >
+          A dynamic ingress controller and control plane for Kubernetes inspired by Atlassian Sovereign. Decouples the Envoy data plane from the control plane using a custom Go service that watches PostgreSQL and streams routing updates dynamically over gRPC via Envoy’s xDS protocol, eliminating process reloads and downtime. Features direct-to-pod routing via headless services, embedded SQL migrations with advisory locks, and an Angular telemetry dashboard displaying live pod health and push latency.
+        </ProjectEntry>
+
+        <ProjectEntry
+          title="Arrakis: Multi-Location Shopify Inventory Platform"
+          link="https://github.com/adimail/arrakis"
+          intro="Java, TypeScript, Shopify GraphQL API, Webhooks, SSE, Docker"
+        >
+          A multi-location inventory monitoring and real-time alert dashboard for Shopify merchants. Integrates with Shopify Admin GraphQL APIs for product and inventory synchronization, processes live inventory level webhook events, and broadcasts threshold alerts to clients using Server-Sent Events (SSE). Supports location-scoped pooling, tiered safety stock thresholds, and granular variant-level overrides.
+        </ProjectEntry>
+
         <ProjectEntry
           title="Bit-by-Mail: Bulk Email Automation Platform"
           link="https://pypi.org/project/bit-by-mail/"
@@ -36,21 +51,22 @@ export const Projects: React.FC = () => {
         >
           Developed a real-time fleet telemetry and deep RL environment for automated rocket soft-landings, accelerating training convergence by over 2x using dynamic reward shaping. Optimized WebSocket throughput via a custom binary payload encoder, cutting network bandwidth to 1.9 KB per tick for 300 concurrent rockets.
         </ProjectEntry>
-	  <ProjectEntry
-		title="Narrative Designer: Temporal Node IDE for Game Narratives"
-		link="https://adimail.github.io/narrativedesigner/"
-		intro="TypeScript, React, Tailwind CSS, Playwright, Vite"
-	  >
-		Specialized IDE for game narrative design engineered to visualize and edit branching narrative structures across a strict temporal grid (28 Days &times; 4 Time Slots). Dictates game scenarios, metadata, and directional flowlines while enforcing temporal guardrails to prevent paradoxes and ensure engine data integrity.
-	  </ProjectEntry>
 
-	  <ProjectEntry
-		title="Zip Courtroom"
-		link="https://zip-courtroom-dragonwarrior.vercel.app/"
-		intro="Next.js, TypeScript, Google Sheets API, Tailwind CSS"
-	  >
-		An over-engineered courtroom dashboard and game engine tracking high-stakes competitive match statistics for the LinkedIn Zip puzzle. Implements a client-side playable game clone, a custom Hamiltonian path puzzle generator and solver, automated daily verdicts, and real-time Google Sheets API telemetry.
-	  </ProjectEntry>
+        <ProjectEntry
+          title="Narrative Designer: Temporal Node IDE for Game Narratives"
+          link="https://adimail.github.io/narrativedesigner/"
+          intro="TypeScript, React, Tailwind CSS, Playwright, Vite"
+        >
+          Specialized IDE for game narrative design engineered to visualize and edit branching narrative structures across a strict temporal grid (28 Days &times; 4 Time Slots). Dictates game scenarios, metadata, and directional flowlines while enforcing temporal guardrails to prevent paradoxes and ensure engine data integrity.
+        </ProjectEntry>
+
+        <ProjectEntry
+          title="Zip Courtroom"
+          link="https://zip-courtroom-dragonwarrior.vercel.app/"
+          intro="Next.js, TypeScript, Google Sheets API, Tailwind CSS"
+        >
+          An over-engineered courtroom dashboard and game engine tracking high-stakes competitive match statistics for the LinkedIn Zip puzzle. Implements a client-side playable game clone, a custom Hamiltonian path puzzle generator and solver, automated daily verdicts, and real-time Google Sheets API telemetry.
+        </ProjectEntry>
 
         <ProjectEntry
           title="Telecom Network Data Pipeline (tndp)"
@@ -113,7 +129,7 @@ export const Projects: React.FC = () => {
           link="https://github.com/adimail/mermaid-editor"
           intro="TypeScript, JavaScript, Gemini LLM, Mermaid.js, Vercel"
         >
-		Mermaid Mind is a powerful, web-based MermaidJS editor enhanced with AI capabilities powered by Google Gemini and Monaco Editor. Whether you’re sketching flowcharts, sequence diagrams, Gantt charts, ER diagrams, class diagrams, pie charts or more, Mermaid Mind makes diagram creation fast, intuitive, and shareable.
+          Mermaid Mind is a powerful, web-based MermaidJS editor enhanced with AI capabilities powered by Google Gemini and Monaco Editor. Whether you’re sketching flowcharts, sequence diagrams, Gantt charts, ER diagrams, class diagrams, pie charts or more, Mermaid Mind makes diagram creation fast, intuitive, and shareable.
         </ProjectEntry>
 
         <ProjectEntry
