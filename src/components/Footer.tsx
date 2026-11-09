@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { Link } from '@tanstack/react-router';
+import React, { useEffect, useRef, useState } from "react";
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { Link } from "@tanstack/react-router";
 
 interface FooterProps {
   links?: boolean;
@@ -20,17 +20,17 @@ const CAMERA_PRESETS = [
 ];
 
 function makeRadialTexture(inner: string, outer: string, size = 256) {
-  const canvas = document.createElement('canvas');
+  const canvas = document.createElement("canvas");
   canvas.width = size;
   canvas.height = size;
-  const ctx = canvas.getContext('2d')!;
+  const ctx = canvas.getContext("2d")!;
   const gradient = ctx.createRadialGradient(
     size / 2,
     size / 2,
     0,
     size / 2,
     size / 2,
-    size / 2
+    size / 2,
   );
   gradient.addColorStop(0, inner);
   gradient.addColorStop(1, outer);
@@ -63,7 +63,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       36,
       container.clientWidth / container.clientHeight,
       0.1,
-      250
+      250,
     );
     camera.position.set(1.5, 2.2, 9.8);
 
@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       canvas,
       antialias: true,
       alpha: false,
-      powerPreference: 'high-performance',
+      powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -102,9 +102,9 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     scene.add(groundMesh);
 
     const cloudTexture = makeRadialTexture(
-      'rgba(255,255,255,0.55)',
-      'rgba(255,255,255,0)',
-      256
+      "rgba(255,255,255,0.55)",
+      "rgba(255,255,255,0)",
+      256,
     );
     const cloudCount = 10;
     const cloudSprites: THREE.Sprite[] = [];
@@ -123,7 +123,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       sprite.position.set(
         (Math.random() - 0.5) * 70,
         4 + Math.random() * 14,
-        (Math.random() - 0.5) * 90 - 20
+        (Math.random() - 0.5) * 90 - 20,
       );
       cloudSpeeds.push(0.08 + Math.random() * 0.12);
       cloudSways.push(Math.random() * Math.PI * 2);
@@ -141,7 +141,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     const dashMesh = new THREE.InstancedMesh(
       dashInstancedGeo,
       dashInstancedMat,
-      dashCount
+      dashCount,
     );
     const dummy = new THREE.Object3D();
 
@@ -202,10 +202,10 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
 
     const streakGeo = new THREE.BufferGeometry();
     streakGeo.setAttribute(
-      'position',
-      new THREE.BufferAttribute(streakPositions, 3)
+      "position",
+      new THREE.BufferAttribute(streakPositions, 3),
     );
-    streakGeo.setAttribute('color', new THREE.BufferAttribute(streakColors, 3));
+    streakGeo.setAttribute("color", new THREE.BufferAttribute(streakColors, 3));
 
     const streakMat = new THREE.LineBasicMaterial({
       vertexColors: true,
@@ -216,9 +216,9 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     scene.add(streakLines);
 
     const shadowTexture = makeRadialTexture(
-      'rgba(0,0,0,0.32)',
-      'rgba(0,0,0,0)',
-      128
+      "rgba(0,0,0,0.32)",
+      "rgba(0,0,0,0)",
+      128,
     );
     const shadowGeo = new THREE.PlaneGeometry(1, 1);
     const shadowMat = new THREE.MeshBasicMaterial({
@@ -282,7 +282,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       rightHistory.push(new THREE.Vector3(wingX, wingY, wingZ + i * 0.45));
 
       const ratio = i / (ribbonPoints - 1);
-      const intensity = 0.28 + ratio * 0.70;
+      const intensity = 0.28 + ratio * 0.7;
 
       leftRibbonColors[i * 3] = intensity;
       leftRibbonColors[i * 3 + 1] = intensity;
@@ -294,21 +294,21 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     }
 
     ribbonGeoLeft.setAttribute(
-      'position',
-      new THREE.BufferAttribute(leftRibbonPositions, 3)
+      "position",
+      new THREE.BufferAttribute(leftRibbonPositions, 3),
     );
     ribbonGeoLeft.setAttribute(
-      'color',
-      new THREE.BufferAttribute(leftRibbonColors, 3)
+      "color",
+      new THREE.BufferAttribute(leftRibbonColors, 3),
     );
 
     ribbonGeoRight.setAttribute(
-      'position',
-      new THREE.BufferAttribute(rightRibbonPositions, 3)
+      "position",
+      new THREE.BufferAttribute(rightRibbonPositions, 3),
     );
     ribbonGeoRight.setAttribute(
-      'color',
-      new THREE.BufferAttribute(rightRibbonColors, 3)
+      "color",
+      new THREE.BufferAttribute(rightRibbonColors, 3),
     );
 
     const ribbonMat = new THREE.LineBasicMaterial({
@@ -324,7 +324,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     scene.add(rightRibbon);
 
     const loader = new GLTFLoader();
-    loader.load('/747.glb', (gltf) => {
+    loader.load("/747.glb", (gltf) => {
       if (!isMounted) return;
       const model = gltf.scene;
       model.rotation.y = Math.PI;
@@ -339,10 +339,10 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
               ? mesh.material
               : [mesh.material];
             mats.forEach((mat) => {
-              if ('roughness' in mat) {
+              if ("roughness" in mat) {
                 (mat as THREE.MeshStandardMaterial).roughness = 0.35;
               }
-              if ('metalness' in mat) {
+              if ("metalness" in mat) {
                 (mat as THREE.MeshStandardMaterial).metalness = 0.15;
               }
               mat.needsUpdate = true;
@@ -365,7 +365,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
 
       const fittedBox = new THREE.Box3().setFromObject(model);
       wingX = fittedBox.max.x * 0.95;
-      wingY = fittedBox.min.y + (fittedBox.max.y - fittedBox.min.y) * 0.30;
+      wingY = fittedBox.min.y + (fittedBox.max.y - fittedBox.min.y) * 0.3;
       wingZ = fittedBox.max.z * 0.44;
 
       const tailTopY = fittedBox.max.y * 0.92;
@@ -411,7 +411,10 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
 
     let initialPinchDistance = 0;
     let pinchStartRadius = 0;
-    const activeTouches = new Map<number, { clientX: number; clientY: number }>();
+    const activeTouches = new Map<
+      number,
+      { clientX: number; clientY: number }
+    >();
 
     let baseRadius = CAMERA_PRESETS[0].radius;
     let basePhi = CAMERA_PRESETS[0].phi;
@@ -443,8 +446,11 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     };
 
     const onPointerDown = (e: PointerEvent) => {
-      if (e.pointerType === 'touch') {
-        activeTouches.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+      if (e.pointerType === "touch") {
+        activeTouches.set(e.pointerId, {
+          clientX: e.clientX,
+          clientY: e.clientY,
+        });
 
         if (activeTouches.size === 2) {
           const touches = Array.from(activeTouches.values());
@@ -472,9 +478,12 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     };
 
     const onPointerMove = (e: PointerEvent) => {
-      if (e.pointerType === 'touch') {
+      if (e.pointerType === "touch") {
         if (!activeTouches.has(e.pointerId)) return;
-        activeTouches.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+        activeTouches.set(e.pointerId, {
+          clientX: e.clientX,
+          clientY: e.clientY,
+        });
 
         if (activeTouches.size >= 2) {
           if (e.cancelable) {
@@ -490,17 +499,20 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
           targetTheta = dragStartTheta - dx * 0.0035;
           targetPhi = Math.max(
             0.2,
-            Math.min(Math.PI - 0.1, dragStartPhi + dy * 0.0035)
+            Math.min(Math.PI - 0.1, dragStartPhi + dy * 0.0035),
           );
 
           const currentPinchDistance = Math.hypot(
             touches[0].clientX - touches[1].clientX,
-            touches[0].clientY - touches[1].clientY
+            touches[0].clientY - touches[1].clientY,
           );
 
           if (initialPinchDistance > 0) {
             const pinchRatio = initialPinchDistance / currentPinchDistance;
-            targetRadius = Math.max(5.0, Math.min(22.0, pinchStartRadius * pinchRatio));
+            targetRadius = Math.max(
+              5.0,
+              Math.min(22.0, pinchStartRadius * pinchRatio),
+            );
           }
         }
         return;
@@ -513,7 +525,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
         targetTheta = dragStartTheta - dx * 0.0035;
         targetPhi = Math.max(
           0.2,
-          Math.min(Math.PI - 0.1, dragStartPhi + dy * 0.0035)
+          Math.min(Math.PI - 0.1, dragStartPhi + dy * 0.0035),
         );
       } else {
         const rect = canvas.getBoundingClientRect();
@@ -534,7 +546,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     };
 
     const onPointerUp = (e: PointerEvent) => {
-      if (e.pointerType === 'touch') {
+      if (e.pointerType === "touch") {
         activeTouches.delete(e.pointerId);
         if (activeTouches.size < 2) {
           isPointerDown = false;
@@ -546,7 +558,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     };
 
     const onPointerLeave = (e: PointerEvent) => {
-      if (e.pointerType === 'touch') {
+      if (e.pointerType === "touch") {
         activeTouches.delete(e.pointerId);
         if (activeTouches.size < 2) {
           isPointerDown = false;
@@ -569,33 +581,25 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       targetRadius = Math.max(5.0, Math.min(22.0, targetRadius + zoomDelta));
     };
 
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Tab' && isVisible) {
-        e.preventDefault();
-        cycleView();
-      }
-    };
-
     const onCustomCycle = () => {
       cycleView();
     };
 
     const onSetView = (e: Event) => {
       const detail = (e as CustomEvent<number>).detail;
-      if (typeof detail === 'number') {
+      if (typeof detail === "number") {
         applyPreset(detail);
       }
     };
 
-    canvas.addEventListener('pointerdown', onPointerDown);
-    window.addEventListener('pointermove', onPointerMove, { passive: false });
-    window.addEventListener('pointerup', onPointerUp);
-    window.addEventListener('pointercancel', onPointerUp);
-    canvas.addEventListener('pointerleave', onPointerLeave);
-    canvas.addEventListener('wheel', onWheel, { passive: false });
-    window.addEventListener('keydown', onKeyDown);
-    window.addEventListener('footer-cycle-view', onCustomCycle);
-    window.addEventListener('footer-set-view', onSetView);
+    canvas.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("pointermove", onPointerMove, { passive: false });
+    window.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointercancel", onPointerUp);
+    canvas.addEventListener("pointerleave", onPointerLeave);
+    canvas.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("footer-cycle-view", onCustomCycle);
+    window.addEventListener("footer-set-view", onSetView);
 
     const onResize = () => {
       if (!container) return;
@@ -606,14 +610,14 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       renderer.setSize(w, h);
     };
 
-    window.addEventListener('resize', onResize);
+    window.addEventListener("resize", onResize);
 
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         isVisible = entry.isIntersecting;
       },
-      { threshold: 0.05 }
+      { threshold: 0.05 },
     );
     observer.observe(container);
 
@@ -662,7 +666,8 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       }
       dashMesh.instanceMatrix.needsUpdate = true;
 
-      const streakPosAttr = streakGeo.attributes.position as THREE.BufferAttribute;
+      const streakPosAttr = streakGeo.attributes
+        .position as THREE.BufferAttribute;
       const streakArr = streakPosAttr.array as Float32Array;
 
       for (let i = 0; i < streakCount; i++) {
@@ -686,7 +691,8 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       for (let i = 0; i < cloudCount; i++) {
         const sprite = cloudSprites[i];
         sprite.position.z += flightSpeed * cloudSpeeds[i] * 0.12 * delta;
-        sprite.position.x += Math.sin(elapsedTime * 0.05 + cloudSways[i]) * 0.01;
+        sprite.position.x +=
+          Math.sin(elapsedTime * 0.05 + cloudSways[i]) * 0.01;
         if (sprite.position.z > 30) {
           sprite.position.z = -90 - Math.random() * 30;
           sprite.position.x = (Math.random() - 0.5) * 70;
@@ -711,44 +717,63 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       shadowMesh.scale.set(4.4 * shadowPulse, 2.3 * shadowPulse, 1);
       shadowMat.opacity = 0.85 - Math.abs(pointer.x) * 0.25;
 
-      const targetBank = -pointer.velX * 0.35 + -pointer.x * 0.09 + idleFloatRoll;
-      const targetPitch = 0.02 + pointer.y * 0.07 + (throttle - 1.0) * 0.04 + idlePitch;
+      const targetBank =
+        -pointer.velX * 0.35 + -pointer.x * 0.09 + idleFloatRoll;
+      const targetPitch =
+        0.02 + pointer.y * 0.07 + (throttle - 1.0) * 0.04 + idlePitch;
       const targetYaw = pointer.velX * 0.18 + -pointer.x * 0.05;
 
       aircraftGroup.rotation.z = THREE.MathUtils.lerp(
         aircraftGroup.rotation.z,
         targetBank,
-        1.0 - Math.exp(-0.95 * delta)
+        1.0 - Math.exp(-0.95 * delta),
       );
       aircraftGroup.rotation.x = THREE.MathUtils.lerp(
         aircraftGroup.rotation.x,
         targetPitch,
-        1.0 - Math.exp(-0.95 * delta)
+        1.0 - Math.exp(-0.95 * delta),
       );
       aircraftGroup.rotation.y = THREE.MathUtils.lerp(
         aircraftGroup.rotation.y,
         targetYaw,
-        1.0 - Math.exp(-0.95 * delta)
+        1.0 - Math.exp(-0.95 * delta),
       );
 
       if (planeModel && modelLoadedAt !== null) {
-        const revealProgress = Math.min(
-          1,
-          (elapsedTime - modelLoadedAt) / 0.9
-        );
+        const revealProgress = Math.min(1, (elapsedTime - modelLoadedAt) / 0.9);
         const eased = 1 - Math.pow(1 - revealProgress, 3);
         const revealScale = modelBaseScale * (0.001 + eased * 0.999);
         planeModel.scale.setScalar(revealScale);
       }
 
       if (!isPointerDown) {
-        targetTheta = THREE.MathUtils.lerp(targetTheta, baseTheta, 1.0 - Math.exp(-0.9 * delta));
-        targetPhi = THREE.MathUtils.lerp(targetPhi, basePhi, 1.0 - Math.exp(-0.9 * delta));
-        targetRadius = THREE.MathUtils.lerp(targetRadius, baseRadius, 1.0 - Math.exp(-0.9 * delta));
+        targetTheta = THREE.MathUtils.lerp(
+          targetTheta,
+          baseTheta,
+          1.0 - Math.exp(-0.9 * delta),
+        );
+        targetPhi = THREE.MathUtils.lerp(
+          targetPhi,
+          basePhi,
+          1.0 - Math.exp(-0.9 * delta),
+        );
+        targetRadius = THREE.MathUtils.lerp(
+          targetRadius,
+          baseRadius,
+          1.0 - Math.exp(-0.9 * delta),
+        );
       }
 
-      currentRadius = THREE.MathUtils.lerp(currentRadius, targetRadius, 1.0 - Math.exp(-1.4 * delta));
-      currentPhi = THREE.MathUtils.lerp(currentPhi, targetPhi, 1.0 - Math.exp(-1.5 * delta));
+      currentRadius = THREE.MathUtils.lerp(
+        currentRadius,
+        targetRadius,
+        1.0 - Math.exp(-1.4 * delta),
+      );
+      currentPhi = THREE.MathUtils.lerp(
+        currentPhi,
+        targetPhi,
+        1.0 - Math.exp(-1.5 * delta),
+      );
 
       let dTheta = (targetTheta - currentTheta) % (Math.PI * 2);
       if (dTheta > Math.PI) dTheta -= Math.PI * 2;
@@ -761,12 +786,27 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
 
       const sinPhiRadius = currentRadius * Math.sin(currentPhi);
       const orbitX = camTarget.x + sinPhiRadius * Math.sin(currentTheta);
-      const orbitY = Math.max(-3.5, camTarget.y + currentRadius * Math.cos(currentPhi));
+      const orbitY = Math.max(
+        -3.5,
+        camTarget.y + currentRadius * Math.cos(currentPhi),
+      );
       const orbitZ = camTarget.z + sinPhiRadius * Math.cos(currentTheta);
 
-      camera.position.x = THREE.MathUtils.lerp(camera.position.x, orbitX, 1.0 - Math.exp(-1.8 * delta));
-      camera.position.y = THREE.MathUtils.lerp(camera.position.y, orbitY, 1.0 - Math.exp(-1.8 * delta));
-      camera.position.z = THREE.MathUtils.lerp(camera.position.z, orbitZ, 1.0 - Math.exp(-1.8 * delta));
+      camera.position.x = THREE.MathUtils.lerp(
+        camera.position.x,
+        orbitX,
+        1.0 - Math.exp(-1.8 * delta),
+      );
+      camera.position.y = THREE.MathUtils.lerp(
+        camera.position.y,
+        orbitY,
+        1.0 - Math.exp(-1.8 * delta),
+      );
+      camera.position.z = THREE.MathUtils.lerp(
+        camera.position.z,
+        orbitZ,
+        1.0 - Math.exp(-1.8 * delta),
+      );
 
       camera.lookAt(camTarget);
 
@@ -780,8 +820,12 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       rightHistory.unshift(vRightTip.clone());
       rightHistory.pop();
 
-      const leftArr = (ribbonGeoLeft.attributes.position as THREE.BufferAttribute).array as Float32Array;
-      const rightArr = (ribbonGeoRight.attributes.position as THREE.BufferAttribute).array as Float32Array;
+      const leftArr = (
+        ribbonGeoLeft.attributes.position as THREE.BufferAttribute
+      ).array as Float32Array;
+      const rightArr = (
+        ribbonGeoRight.attributes.position as THREE.BufferAttribute
+      ).array as Float32Array;
 
       for (let i = 0; i < ribbonPoints; i++) {
         if (i > 0) {
@@ -800,8 +844,11 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
         rightArr[i * 3 + 1] = r.y;
         rightArr[i * 3 + 2] = r.z;
       }
-      (ribbonGeoLeft.attributes.position as THREE.BufferAttribute).needsUpdate = true;
-      (ribbonGeoRight.attributes.position as THREE.BufferAttribute).needsUpdate = true;
+      (ribbonGeoLeft.attributes.position as THREE.BufferAttribute).needsUpdate =
+        true;
+      (
+        ribbonGeoRight.attributes.position as THREE.BufferAttribute
+      ).needsUpdate = true;
 
       const strobeCycle = elapsedTime % 1.25;
       const isStrobe =
@@ -819,16 +866,15 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
       cancelAnimationFrame(animationFrameId);
       observer.disconnect();
 
-      canvas.removeEventListener('pointerdown', onPointerDown);
-      window.removeEventListener('pointermove', onPointerMove);
-      window.removeEventListener('pointerup', onPointerUp);
-      window.removeEventListener('pointercancel', onPointerUp);
-      canvas.removeEventListener('pointerleave', onPointerLeave);
-      canvas.removeEventListener('wheel', onWheel);
-      window.removeEventListener('keydown', onKeyDown);
-      window.removeEventListener('footer-cycle-view', onCustomCycle);
-      window.removeEventListener('footer-set-view', onSetView);
-      window.removeEventListener('resize', onResize);
+      canvas.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointercancel", onPointerUp);
+      canvas.removeEventListener("pointerleave", onPointerLeave);
+      canvas.removeEventListener("wheel", onWheel);
+      window.removeEventListener("footer-cycle-view", onCustomCycle);
+      window.removeEventListener("footer-set-view", onSetView);
+      window.removeEventListener("resize", onResize);
 
       groundGeo.dispose();
       groundMat.dispose();
@@ -857,15 +903,15 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const onMobileCycle = () => {
-    window.dispatchEvent(new CustomEvent('footer-cycle-view'));
+    window.dispatchEvent(new CustomEvent("footer-cycle-view"));
   };
 
   const jumpToView = (index: number) => {
-    window.dispatchEvent(new CustomEvent('footer-set-view', { detail: index }));
+    window.dispatchEvent(new CustomEvent("footer-set-view", { detail: index }));
   };
 
   return (
@@ -881,7 +927,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
         className="pointer-events-none absolute inset-0 z-[5]"
         style={{
           background:
-            'radial-gradient(ellipse 90% 70% at 50% 100%, rgba(24,24,27,0.06) 0%, rgba(24,24,27,0) 60%)',
+            "radial-gradient(ellipse 90% 70% at 50% 100%, rgba(24,24,27,0.06) 0%, rgba(24,24,27,0) 60%)",
         }}
       />
 
@@ -889,7 +935,7 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
         className="pointer-events-none absolute top-0 left-0 right-0 h-56 z-[6]"
         style={{
           background:
-            'linear-gradient(to bottom, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0) 100%)',
+            "linear-gradient(to bottom, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0) 100%)",
         }}
       />
 
@@ -903,8 +949,8 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
               aria-label={`Switch to view ${i + 1}`}
               className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                 i === activeView
-                  ? 'w-5 bg-zinc-800'
-                  : 'w-1.5 bg-zinc-300 hover:bg-zinc-400'
+                  ? "w-5 bg-zinc-800"
+                  : "w-1.5 bg-zinc-300 hover:bg-zinc-400"
               }`}
             />
           ))}
@@ -935,10 +981,11 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
               >
                 Twitter
               </a>
-              <a href="/resume.pdf" target="_blank" rel="noreferrer">
-                Resume
-              </a>
-              <a href="mailto:aditya.godse747@gmail.com" target="_blank" rel="noreferrer">
+              <a
+                href="mailto:aditya.godse747@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Email
               </a>
             </div>
@@ -983,4 +1030,3 @@ export const Footer: React.FC<FooterProps> = ({ links = false }) => {
     </footer>
   );
 };
-

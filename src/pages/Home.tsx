@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from '@tanstack/react-router';
-import { HeroImage } from '../components/HeroImage';
-import { Footer } from '../components/Footer';
-import { getAllPosts, formatDate } from '../lib/posts';
+import React from "react";
+import { Link } from "@tanstack/react-router";
+import { HeroImage } from "../components/HeroImage";
+import { Footer } from "../components/Footer";
+import { getAllPosts, formatDate } from "../lib/posts";
 
 export const Home: React.FC = () => {
   const recentPosts = getAllPosts().slice(0, 3);
@@ -17,14 +17,16 @@ export const Home: React.FC = () => {
                 Hi, I am Aditya.
               </h1>
               <p className="text-zinc-600 mb-2">
-                22-year-old Computer Science graduate &bull; Pune, India (IST / UTC+5:30)
+                22-year-old Computer Science graduate &bull; Pune, India (IST /
+                UTC+5:30)
               </p>
               <p className="text-zinc-800 mt-2">
-                I like building fast, dependable software from first principles spanning Cloud infrastructure, distributed systems, real-time data pipelines, and responsive interfaces. I care deeply about good craft, clean abstractions, and software that feels great to use. Read my{' '}
-                <Link to="/about">
-                  Background, Stack &amp; Philosophy
-                </Link>
-                .
+                I like building fast, dependable software from first principles
+                spanning Cloud infrastructure, distributed systems, real-time
+                data pipelines, and responsive interfaces. I care deeply about
+                good craft, clean abstractions, and software that feels great to
+                use. Read my{" "}
+                <Link to="/about">Background, Stack &amp; Philosophy</Link>.
               </p>
               <p className="mt-4">
                 <Link to="/img" className="text-zinc-500 text-sm">
@@ -41,16 +43,19 @@ export const Home: React.FC = () => {
 
             <section>
               <h2 className="font-serif italic text-2xl font-normal text-black mb-3 mt-20 md:mt-0">
-                Experience <span className='text-sm'>(<a
-                  href="mailto:aditya.godse747@gmail.com"
-                >
-                  Open to engineering roles &amp; contract work
-                </a>)</span>
+                Experience{" "}
+                <span className="text-sm">
+                  (
+                  <a href="mailto:aditya.godse747@gmail.com">
+                    Open to engineering roles &amp; contract work
+                  </a>
+                  )
+                </span>
               </h2>
               <div className="space-y-2 text-zinc-800">
                 <div className="flex items-baseline justify-between w-full">
                   <span className="shrink-0">
-                    Chairperson @{' '}
+                    Chairperson @{" "}
                     <a
                       href="https://ioit.acm.org/"
                       target="_blank"
@@ -66,7 +71,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="flex items-baseline justify-between w-full">
                   <span className="shrink-0">
-                    Webmaster @{' '}
+                    Webmaster @{" "}
                     <a
                       href="https://ioit.acm.org/"
                       target="_blank"
@@ -82,7 +87,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="flex items-baseline justify-between w-full">
                   <span className="shrink-0">
-                    Founding Engineer @{' '}
+                    Founding Engineer @{" "}
                     <a
                       href="https://www.linkedin.com/company/hosteze"
                       target="_blank"
@@ -105,29 +110,19 @@ export const Home: React.FC = () => {
               </h2>
               <ul className="space-y-1.5 text-zinc-800">
                 <li>
-                  <Link to="/projects">
-                    Serious projects
-                  </Link>
+                  <Link to="/projects">Serious projects</Link>
                 </li>
                 <li>
-                  <Link to="/funproj">
-                    Fun projects
-                  </Link>
+                  <Link to="/funproj">Fun projects</Link>
                 </li>
                 <li>
-                  <Link to="/hackthons">
-                    Hackathons
-                  </Link>
+                  <Link to="/hackthons">Hackathons</Link>
                 </li>
                 <li>
-                  <Link to="/opensource">
-                    Open source contributions
-                  </Link>
+                  <Link to="/opensource">Open source contributions</Link>
                 </li>
                 <li>
-                  <Link to="/papers">
-                    Implemented research papers
-                  </Link>
+                  <Link to="/papers">Implemented research papers</Link>
                 </li>
               </ul>
             </section>
@@ -146,7 +141,8 @@ export const Home: React.FC = () => {
                     3D Spatial Film Database
                   </a>
                   <span className="text-zinc-500 text-xs block sm:inline sm:ml-2">
-                    <span className='hidden md:inline-block'>&mdash;</span> Interactive multidimensional film explorer with WebGL
+                    <span className="hidden md:inline-block">&mdash;</span>{" "}
+                    Interactive multidimensional film explorer with WebGL
                   </span>
                 </li>
                 <li>
@@ -158,7 +154,9 @@ export const Home: React.FC = () => {
                     Rocket Landing RL
                   </a>
                   <span className="text-zinc-500 text-xs block sm:inline sm:ml-2">
-                    <span className='hidden md:inline-block'>&mdash;</span> Real-Time Fleet Telemetry for Deep RL Rocket Landing Simulation &amp; Visualization Platform
+                    <span className="hidden md:inline-block">&mdash;</span>{" "}
+                    Real-Time Fleet Telemetry for Deep RL Rocket Landing
+                    Simulation &amp; Visualization Platform
                   </span>
                 </li>
                 <li>
@@ -170,7 +168,8 @@ export const Home: React.FC = () => {
                     Notebook-X
                   </a>
                   <span className="text-zinc-500 text-xs block sm:inline sm:ml-2">
-                    <span className='hidden md:inline-block'>&mdash;</span> Zero-dependency interactive web Python notebook kernel
+                    <span className="hidden md:inline-block">&mdash;</span>{" "}
+                    Zero-dependency interactive web Python notebook kernel
                   </span>
                 </li>
               </ul>
@@ -182,7 +181,10 @@ export const Home: React.FC = () => {
               </h2>
               <div className="space-y-2 text-zinc-800">
                 {recentPosts.map((post) => (
-                  <div key={post.slug} className="flex items-baseline gap-3 min-w-0 w-full">
+                  <div
+                    key={post.slug}
+                    className="flex items-baseline gap-3 min-w-0 w-full"
+                  >
                     <span className="shrink-0 text-xs hidden md:block text-zinc-500 font-mono w-[84px]">
                       {formatDate(post.date)}
                     </span>
@@ -214,14 +216,7 @@ export const Home: React.FC = () => {
                 Elsewhere
               </h2>
 
-              <div className='flex flex-wrap gap-4 text-sm'>
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Resume
-                </a>
+              <div className="flex flex-wrap gap-4 text-sm">
                 <a
                   href="https://github.com/adimail"
                   target="_blank"
@@ -243,9 +238,7 @@ export const Home: React.FC = () => {
                 >
                   Kaggle
                 </a>
-                <a href="mailto:adimail2404@gmail.com">
-                  Email
-                </a>
+                <a href="mailto:adimail2404@gmail.com">Email</a>
               </div>
             </section>
           </div>
@@ -261,4 +254,3 @@ export const Home: React.FC = () => {
     </>
   );
 };
-
